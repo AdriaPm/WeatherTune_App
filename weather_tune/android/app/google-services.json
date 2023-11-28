@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "7395802710",
+    "firebase_url": "https://weathertune-80cee-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "weathertune-80cee",
+    "storage_bucket": "weathertune-80cee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:7395802710:android:c893b276dd79a1ca3645f7",
+        "android_client_info": {
+          "package_name": "com.example.weather_tune"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYEAYMY72P8TXloX1GMngaappcrARU4x4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
