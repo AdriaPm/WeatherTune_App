@@ -43,6 +43,8 @@ dependencies:
   intl: ^0.18.1
   flutter_bloc: ^8.1.3
   equatable: ^2.0.5
+  meta: ^1.9.1
+  bloc: ^8.1.2
 
 
 dev_dependencies:
@@ -75,6 +77,9 @@ flutter:
     - images/WeatherTuneLogo_BIG.png
     - images/WeatherTuneLogo_MEDIUM.png
     - images/WeatherTuneLogo_SMALL.png
+    - images\3d_weather_icons\sun\27.png
+    - images/3d_weather_icons/sun/26.png
+    - images\3d_weather_icons\moon\10.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
