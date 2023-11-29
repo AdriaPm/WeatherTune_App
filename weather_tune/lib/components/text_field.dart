@@ -19,14 +19,14 @@ class MyTextField extends StatelessWidget {
       decoration: InputDecoration(
           enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(20),
-              borderSide: BorderSide(color: Colors.grey)),
+              borderSide: const BorderSide(color: Colors.grey)),
           focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(20),
-              borderSide: BorderSide(color: Colors.grey)),
-          fillColor: Color.fromARGB(221, 255, 255, 255),
+              borderRadius: BorderRadius.circular(40),
+              borderSide: const BorderSide(color: Colors.grey)),
+          fillColor: const Color.fromARGB(221, 255, 255, 255),
           filled: true,
           hintText: hintText,
-          hintStyle: TextStyle(color: Colors.black)),
+          hintStyle: const TextStyle(color: Colors.black)),
     );
   }
 }

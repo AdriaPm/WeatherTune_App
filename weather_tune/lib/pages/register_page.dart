@@ -61,86 +61,103 @@ class _RegisterPageState extends State<RegisterPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.grey[300],
-        body: SafeArea(
-          child: Center(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  //logo
-                  const Icon(
-                    Icons.lock,
-                    size: 100,
-                  ),
+        body: Container(
+          width: MediaQuery.sizeOf(context).width,
+          height: MediaQuery.sizeOf(context).height * 1,
+          decoration: BoxDecoration(
+            color: const Color.fromARGB(78, 20, 24, 27),
+            image: DecorationImage(
+              fit: BoxFit.cover,
+              image: Image.asset(
+                "images/registerbackground.jpg",
+              ).image,
+            ),
+          ),
+          child: SafeArea(
+            child: Center(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                child: Container(
+                  decoration: BoxDecoration(
+                      //color: const Color.fromARGB(41, 255, 255, 255),
+                      color: Colors.transparent,
+                      borderRadius: BorderRadius.circular(40)),
+                  height: MediaQuery.of(context).size.height - 400,
+                  width: MediaQuery.of(context).size.width - 150,
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text("Register",
+                            style: TextStyle(
+                                color: Color.fromARGB(255, 255, 145, 0),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 40)),
 
-                  const SizedBox(
-                    height: 50,
-                  ),
-
-                  //welcome
-                  Text("Lets create an account for you",
-                      style: TextStyle(color: Colors.grey[700])),
-
-                  const SizedBox(
-                    height: 25,
-                  ),
-
-                  MyTextField(
-                      controller: emailTextController,
-                      hintText: 'Email',
-                      obscureText: false),
-
-                  const SizedBox(
-                    height: 10,
-                  ),
-
-                  MyTextField(
-                      controller: passwordTextController,
-                      hintText: 'Password',
-                      obscureText: true),
-
-                  const SizedBox(
-                    height: 10,
-                  ),
-
-                  MyTextField(
-                      controller: confirmPasswordTextController,
-                      hintText: 'Confirm Password',
-                      obscureText: true),
-
-                  const SizedBox(
-                    height: 10,
-                  ),
-
-                  //sign up button
-                  MyButton(onTap: signUp, text: 'Sign Up'),
-
-                  const SizedBox(
-                    height: 25,
-                  ),
-
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "Already have an account?",
-                        style: TextStyle(color: Colors.grey[700]),
-                      ),
-                      const SizedBox(
-                        width: 4,
-                      ),
-                      GestureDetector(
-                        onTap: widget.onTap,
-                        child: const Text(
-                          "Login now",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, color: Colors.blue),
+                        const SizedBox(
+                          height: 25,
                         ),
-                      )
-                    ],
-                  )
-                ],
+
+                        MyTextField(
+                            controller: emailTextController,
+                            hintText: 'Email',
+                            obscureText: false),
+
+                        const SizedBox(
+                          height: 10,
+                        ),
+
+                        MyTextField(
+                            controller: passwordTextController,
+                            hintText: 'Password',
+                            obscureText: true),
+
+                        const SizedBox(
+                          height: 10,
+                        ),
+
+                        MyTextField(
+                            controller: confirmPasswordTextController,
+                            hintText: 'Confirm Password',
+                            obscureText: true),
+
+                        const SizedBox(
+                          height: 10,
+                        ),
+
+                        //sign up button
+                        MyButton(onTap: signUp, text: 'Sign Up'),
+
+                        const SizedBox(
+                          height: 25,
+                        ),
+
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Text(
+                              "Already have an account?",
+                              style: TextStyle(color: Colors.white),
+                            ),
+                            const SizedBox(
+                              width: 4,
+                            ),
+                            GestureDetector(
+                              onTap: widget.onTap,
+                              child: const Text(
+                                "Login now",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.orange),
+                              ),
+                            )
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+                ),
               ),
             ),
           ),
