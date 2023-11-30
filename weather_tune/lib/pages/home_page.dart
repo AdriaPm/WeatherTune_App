@@ -294,7 +294,10 @@ class _HomePageState extends State<HomePage> {
                                       ],
                                     ),
                                     ElevatedButton(
-                                        onPressed: () {},
+                                        onPressed: () {
+                                          Navigator.pushNamed(
+                                              context, "/details");
+                                        },
                                         child: Text("More Info"))
                                   ],
                                 ),

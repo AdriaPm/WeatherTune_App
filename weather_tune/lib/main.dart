@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:weather_tune/components/route_info.dart';
 import 'package:weather_tune/firebase_options.dart';
 import 'package:weather_tune/pages/splash_page.dart';
 
@@ -17,8 +18,11 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
+      routes: {
+        "/details": (context) => DetailsAPI(),
+      },
       home: SplashPage(screenLoadingTime: 4),
     );
   }

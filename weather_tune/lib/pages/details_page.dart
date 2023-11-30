@@ -22,7 +22,7 @@ class _DetailsPageState extends State<DetailsPage> {
             onPressed: () => Navigator.pop(context),
             icon: const Icon(
               Icons.arrow_back_rounded,
-              color: Colors.white,
+              color: Colors.black,
               size: 30,
             ),
           ),
@@ -38,7 +38,7 @@ class _DetailsPageState extends State<DetailsPage> {
                   Text(
                     '📍 ${state.weather.areaName}',
                     style: TextStyle(
-                        color: Colors.white,
+                        color: Colors.black,
                         fontSize: 32,
                         fontWeight: FontWeight.w400),
                   ),
