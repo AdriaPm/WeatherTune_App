@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ExpandableBottomSheet extends StatefulWidget {
+  const ExpandableBottomSheet({super.key});
+
   @override
   _ExpandableBottomSheetState createState() => _ExpandableBottomSheetState();
 }

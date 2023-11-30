@@ -18,10 +18,10 @@ class SplashPage extends StatefulWidget {
 
 class _SplashPageState extends State<SplashPage> {
   List<Color> backgroundGradientColors = [
+    Colors.indigo.shade900,
     Colors.indigo,
     Colors.deepPurple,
     Colors.purple,
-    Colors.pink
   ];
 
   @override

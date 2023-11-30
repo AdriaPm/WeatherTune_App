@@ -21,9 +21,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: {
-        "/details": (context) => DetailsAPI(),
+        "/details": (context) => const DetailsAPI(),
       },
-      home: SplashPage(screenLoadingTime: 4),
+      home: const SplashPage(screenLoadingTime: 4),
     );
   }
 }

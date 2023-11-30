@@ -298,7 +298,7 @@ class _HomePageState extends State<HomePage> {
                                           Navigator.pushNamed(
                                               context, "/details");
                                         },
-                                        child: Text("More Info"))
+                                        child: const Text("More Info"))
                                   ],
                                 ),
                               ]),
