@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_tune/bloc/weather_bloc_bloc.dart';
+import 'package:weather_tune/widgets/details_page/my_ubication_display.dart';
 
 class DetailsPage extends StatefulWidget {
   const DetailsPage({super.key});
@@ -16,6 +17,7 @@ class _DetailsPageState extends State<DetailsPage> {
     Colors.deepPurple,
     Colors.purple,
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,20 +35,25 @@ class _DetailsPageState extends State<DetailsPage> {
                   colors: backgroundGradientColors,
                 ),
               ),
-              child: Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      '📍 ${state.weather.areaName}',
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w400,
-                      ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  //Widget to display my ubication basic info
+                  MyUbication(
+                    areaName: state.weather.areaName!,
+                    maxTemp: state.weather.tempMax!.celsius!.round(),
+                    minTemp: state.weather.tempMin!.celsius!.round(),
+                  ),
+                  const SizedBox(height: 50),
+                  const Text(
+                    '8-Days Forecasts:',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             );
           } else {
