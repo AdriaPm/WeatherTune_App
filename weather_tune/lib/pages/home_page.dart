@@ -4,6 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:weather_tune/bloc/weather_bloc_bloc.dart';
 import 'package:weather_tune/components/bottombar.dart';
+import 'package:weather_tune/components/button.dart';
+import 'package:weather_tune/components/slider_bottom_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -291,6 +293,9 @@ class _HomePageState extends State<HomePage> {
                                         )
                                       ],
                                     ),
+                                    ElevatedButton(
+                                        onPressed: () {},
+                                        child: Text("More Info"))
                                   ],
                                 ),
                               ]),
