@@ -5,6 +5,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:weather_tune/auth/auth.dart';
 import 'package:weather_tune/bloc/weather_bloc_bloc.dart';
 import 'package:weather_tune/firebase_options.dart';
+import 'package:weather_tune/pages/home_page_noAPI.dart';
 import 'package:weather_tune/pages/splash_page.dart';
 
 void main() async {
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Api_Enabled(), //SplashPage(screenLoadingTime: 4),
+      home: SplashPage(screenLoadingTime: 4),
     );
   }
 }
@@ -45,7 +46,7 @@ class _Api_EnabledState extends State<Api_Enabled> {
             return BlocProvider(
               create: (context) =>
                   WeatherBlocBloc()..add(FetchWeather(snap.data as Position)),
-              child: const SplashPage(screenLoadingTime: 4),
+              child: const HomePage(),
             );
           } else {
             return const Scaffold(
