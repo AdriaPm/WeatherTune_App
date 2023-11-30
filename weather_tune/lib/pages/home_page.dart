@@ -1,11 +1,9 @@
 import 'dart:ui';
-
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:weather_tune/bloc/weather_bloc_bloc.dart';
+import 'package:weather_tune/components/bottombar.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -36,29 +34,18 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
-  //Sign User Out
-  void signOut() {
-    FirebaseAuth.instance.signOut();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.black,
         extendBodyBehindAppBar: true,
-        appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          systemOverlayStyle:
-              const SystemUiOverlayStyle(statusBarBrightness: Brightness.dark),
-          actions: [
-            //Sign Out Button
-            IconButton(onPressed: signOut, icon: const Icon(Icons.logout))
-          ],
-        ),
+        bottomNavigationBar: BottomBarWidget(
+            favorites_active: false,
+            home_active: true,
+            profile_active: false,
+            search_active: false),
         body: Padding(
-            padding:
-                const EdgeInsets.fromLTRB(40, 1.2 * kToolbarHeight, 40, 20),
+            padding: const EdgeInsets.fromLTRB(40, 20, 40, 20),
             child: SizedBox(
                 height: MediaQuery.of(context).size.height,
                 child: Stack(children: [
