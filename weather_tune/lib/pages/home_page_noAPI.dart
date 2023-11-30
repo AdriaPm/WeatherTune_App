@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 import 'package:weather_tune/bloc/weather_bloc_bloc.dart';
 
 class HomePage extends StatefulWidget {
@@ -14,6 +15,27 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  Widget getWeatherIcon(int code) {
+    switch (code) {
+      case >= 200 && < 300:
+        return Image.asset('images/weather_icons/1.png');
+      case >= 300 && < 400:
+        return Image.asset('images/weather_icons/2.png');
+      case >= 500 && < 600:
+        return Image.asset('images/weather_icons/3.png');
+      case >= 600 && < 700:
+        return Image.asset('images/weather_icons/4.png');
+      case >= 700 && < 800:
+        return Image.asset('images/weather_icons/5.png');
+      case == 800:
+        return Image.asset('images/weather_icons/6.png');
+      case > 800 && <= 804:
+        return Image.asset('images/weather_icons/7.png');
+      default:
+        return Image.asset('images/weather_icons/7.png');
+    }
+  }
+
   //Sign User Out
   void signOut() {
     FirebaseAuth.instance.signOut();
@@ -83,8 +105,8 @@ class _HomePageState extends State<HomePage> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  '${state.weather.areaName}',
-                                  style: TextStyle(
+                                  '📍 ${state.weather.areaName}',
+                                  style: const TextStyle(
                                       color: Colors.white,
                                       fontWeight: FontWeight.w300),
                                 ),
@@ -98,21 +120,21 @@ class _HomePageState extends State<HomePage> {
                                       fontSize: 25,
                                       fontWeight: FontWeight.bold),
                                 ),
-                                Image.asset(
-                                    "images/3d_weather_icons/sun/27.png"),
-                                const Center(
+                                getWeatherIcon(
+                                    state.weather.weatherConditionCode!),
+                                Center(
                                   child: Text(
-                                    "20ºC",
-                                    style: TextStyle(
+                                    "${state.weather.temperature!.celsius!.round()}ºC",
+                                    style: const TextStyle(
                                         color: Colors.white,
                                         fontSize: 55,
                                         fontWeight: FontWeight.w600),
                                   ),
                                 ),
-                                const Center(
+                                Center(
                                   child: Text(
-                                    "Cloudy",
-                                    style: TextStyle(
+                                    state.weather.weatherMain!.toUpperCase(),
+                                    style: const TextStyle(
                                         color: Colors.white,
                                         fontSize: 25,
                                         fontWeight: FontWeight.w500),
@@ -121,10 +143,12 @@ class _HomePageState extends State<HomePage> {
                                 const SizedBox(
                                   height: 5,
                                 ),
-                                const Center(
+                                Center(
                                   child: Text(
-                                    "Wednesday 29 · 10:40am",
-                                    style: TextStyle(
+                                    DateFormat('EEEE dd ·')
+                                        .add_jm()
+                                        .format(state.weather.date!),
+                                    style: const TextStyle(
                                         color: Colors.white,
                                         fontSize: 16,
                                         fontWeight: FontWeight.w300),
@@ -140,29 +164,29 @@ class _HomePageState extends State<HomePage> {
                                     Row(
                                       children: [
                                         Image.asset(
-                                          "images/3d_weather_icons/sun/26.png",
-                                          height: 60,
-                                          width: 60,
+                                          'images/weather_icons/11.png',
+                                          scale: 8,
                                         ),
                                         const SizedBox(
                                           width: 5,
                                         ),
-                                        const Column(
+                                        Column(
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
                                           children: [
-                                            Text(
+                                            const Text(
                                               "Sunrise",
                                               style: TextStyle(
                                                   color: Colors.white,
                                                   fontWeight: FontWeight.w300),
                                             ),
-                                            SizedBox(
+                                            const SizedBox(
                                               height: 3,
                                             ),
                                             Text(
-                                              "5:34 am",
-                                              style: TextStyle(
+                                              DateFormat().add_jm().format(
+                                                  state.weather.sunrise!),
+                                              style: const TextStyle(
                                                   color: Colors.white,
                                                   fontWeight: FontWeight.w700),
                                             ),
@@ -173,29 +197,29 @@ class _HomePageState extends State<HomePage> {
                                     Row(
                                       children: [
                                         Image.asset(
-                                          "images/3d_weather_icons/moon/10.png",
-                                          height: 60,
-                                          width: 60,
+                                          'images/weather_icons/12.png',
+                                          scale: 8,
                                         ),
                                         const SizedBox(
                                           width: 5,
                                         ),
-                                        const Column(
+                                        Column(
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
                                           children: [
-                                            Text(
+                                            const Text(
                                               "Sunset",
                                               style: TextStyle(
                                                   color: Colors.white,
                                                   fontWeight: FontWeight.w300),
                                             ),
-                                            SizedBox(
+                                            const SizedBox(
                                               height: 3,
                                             ),
                                             Text(
-                                              "8:34 pm",
-                                              style: TextStyle(
+                                              DateFormat().add_jm().format(
+                                                  state.weather.sunset!),
+                                              style: const TextStyle(
                                                   color: Colors.white,
                                                   fontWeight: FontWeight.w700),
                                             ),
@@ -218,29 +242,28 @@ class _HomePageState extends State<HomePage> {
                                     Row(
                                       children: [
                                         Image.asset(
-                                          "images/3d_weather_icons/sun/26.png",
-                                          height: 60,
-                                          width: 60,
+                                          'images/weather_icons/13.png',
+                                          scale: 8,
                                         ),
                                         const SizedBox(
                                           width: 5,
                                         ),
-                                        const Column(
+                                        Column(
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
                                           children: [
-                                            Text(
+                                            const Text(
                                               "Temp Max",
                                               style: TextStyle(
                                                   color: Colors.white,
                                                   fontWeight: FontWeight.w300),
                                             ),
-                                            SizedBox(
+                                            const SizedBox(
                                               height: 3,
                                             ),
                                             Text(
-                                              "20ºC",
-                                              style: TextStyle(
+                                              '${state.weather.tempMax!.celsius!.round()}ºC',
+                                              style: const TextStyle(
                                                   color: Colors.white,
                                                   fontWeight: FontWeight.w700),
                                             ),
@@ -251,29 +274,28 @@ class _HomePageState extends State<HomePage> {
                                     Row(
                                       children: [
                                         Image.asset(
-                                          "images/3d_weather_icons/moon/10.png",
-                                          height: 60,
-                                          width: 60,
+                                          'images/weather_icons/14.png',
+                                          scale: 8,
                                         ),
                                         const SizedBox(
                                           width: 5,
                                         ),
-                                        const Column(
+                                        Column(
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
                                           children: [
-                                            Text(
+                                            const Text(
                                               "Temp Min",
                                               style: TextStyle(
                                                   color: Colors.white,
                                                   fontWeight: FontWeight.w300),
                                             ),
-                                            SizedBox(
+                                            const SizedBox(
                                               height: 3,
                                             ),
                                             Text(
-                                              "8ºC",
-                                              style: TextStyle(
+                                              '${state.weather.tempMin!.celsius!.round()}ºC',
+                                              style: const TextStyle(
                                                   color: Colors.white,
                                                   fontWeight: FontWeight.w700),
                                             ),

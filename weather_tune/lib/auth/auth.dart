@@ -2,7 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:weather_tune/auth/login_register.dart';
 import 'package:weather_tune/main.dart';
-import 'package:weather_tune/pages/home_page_noAPI.dart';
 
 class AuthPage extends StatefulWidget {
   const AuthPage({super.key});
