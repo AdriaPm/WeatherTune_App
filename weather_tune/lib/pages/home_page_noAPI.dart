@@ -53,7 +53,7 @@ class _HomePageState extends State<HomePage> {
               const SystemUiOverlayStyle(statusBarBrightness: Brightness.dark),
           actions: [
             //Sign Out Button
-            IconButton(onPressed: signOut, icon: Icon(Icons.logout))
+            IconButton(onPressed: signOut, icon: const Icon(Icons.logout))
           ],
         ),
         body: Padding(
@@ -92,7 +92,8 @@ class _HomePageState extends State<HomePage> {
                   BackdropFilter(
                     filter: ImageFilter.blur(sigmaX: 100.0, sigmaY: 100.0),
                     child: Container(
-                      decoration: BoxDecoration(color: Colors.transparent),
+                      decoration:
+                          const BoxDecoration(color: Colors.transparent),
                     ),
                   ),
                   BlocBuilder<WeatherBlocBloc, WeatherBlocState>(

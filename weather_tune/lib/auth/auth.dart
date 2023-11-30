@@ -19,7 +19,7 @@ class _AuthPageState extends State<AuthPage> {
           builder: (context, snapshot) {
             //User Logged In
             if (snapshot.hasData) {
-              return const Api_Enabled();
+              return const ApiEnabled();
             }
             //User NOT Logged In
             else {

@@ -2,7 +2,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:weather_tune/auth/auth.dart';
 import 'package:weather_tune/bloc/weather_bloc_bloc.dart';
 import 'package:weather_tune/firebase_options.dart';
 import 'package:weather_tune/pages/home_page_noAPI.dart';
@@ -29,14 +28,14 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class Api_Enabled extends StatefulWidget {
-  const Api_Enabled({super.key});
+class ApiEnabled extends StatefulWidget {
+  const ApiEnabled({super.key});
 
   @override
-  State<Api_Enabled> createState() => _Api_EnabledState();
+  State<ApiEnabled> createState() => _ApiEnabledState();
 }
 
-class _Api_EnabledState extends State<Api_Enabled> {
+class _ApiEnabledState extends State<ApiEnabled> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
@@ -69,7 +68,7 @@ class ApiNotEnabled extends StatefulWidget {
 class _ApiNotEnabledState extends State<ApiNotEnabled> {
   @override
   Widget build(BuildContext context) {
-    return SplashPage(screenLoadingTime: 3);
+    return const SplashPage(screenLoadingTime: 3);
   }
 }
 
