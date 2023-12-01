@@ -21,9 +21,7 @@ class _DetailsPageState extends State<DetailsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.deepPurple,
-      ),
+      appBar: AppBar(backgroundColor: Colors.deepPurple),
       body: BlocBuilder<WeatherBlocBloc, WeatherBlocState>(
         builder: (context, state) {
           if (state is WeatherBlocSuccess) {

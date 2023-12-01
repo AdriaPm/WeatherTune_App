@@ -30,7 +30,7 @@ class MyUbication extends StatelessWidget {
           '📍 $areaName',
           style: const TextStyle(
             color: Colors.white,
-            fontSize: 35,
+            fontSize: 25,
             fontWeight: FontWeight.w400,
           ),
         ),
