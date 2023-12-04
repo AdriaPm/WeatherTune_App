@@ -16,7 +16,7 @@ class WeatherBlocBloc extends Bloc<WeatherBlocEvent, WeatherBlocState> {
         WeatherFactory wf = WeatherFactory(API_KEY, language: Language.ENGLISH);
 
         List<Weather> weatherlist = await wf.fiveDayForecastByLocation(
-          event.position.latitude, event.position.longitude);
+            event.position.latitude, event.position.longitude);
 
         Weather weather = await wf.currentWeatherByLocation(
             event.position.latitude, event.position.longitude);
