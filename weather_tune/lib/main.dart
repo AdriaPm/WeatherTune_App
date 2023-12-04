@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:weather_tune/components/route_info.dart';
 import 'package:weather_tune/firebase_options.dart';
 import 'package:weather_tune/pages/splash_page.dart';
+import 'package:weather_tune/pages/settings_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
         "/details": (context) => const DetailsAPI(),
       },
       home: const SplashPage(screenLoadingTime: 4),
+      //home: const SettingsPage(),
     );
   }
 }

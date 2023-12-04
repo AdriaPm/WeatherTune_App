@@ -19,23 +19,37 @@ class _DropDownButtonState extends State<DropDownButton> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        padding: const EdgeInsets.all(5),
-        width: widget.widgetWidth,
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(widget.title,
-                    style: const TextStyle(color: Colors.white, fontSize: 16)),
-                selected
-                    ? const Icon(Icons.keyboard_arrow_right)
-                    : const Icon(Icons.keyboard_arrow_down)
-              ],
-            ),
-            if (selected) widget.child,
-          ],
-        ));
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          selected = !selected;
+        });
+      },
+      child: Container(
+          padding: const EdgeInsets.all(5),
+          width: widget.widgetWidth,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15), color: Colors.purple),
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(widget.title,
+                      style:
+                          const TextStyle(color: Colors.white, fontSize: 16)),
+                  selected
+                      ? const Icon(Icons.keyboard_arrow_down,
+                          color: Colors.white)
+                      : const Icon(Icons.keyboard_arrow_right,
+                          color: Colors.white)
+                ],
+              ),
+              if (selected)
+                Container(
+                    padding: const EdgeInsets.all(5), child: widget.child),
+            ],
+          )),
+    );
   }
 }
