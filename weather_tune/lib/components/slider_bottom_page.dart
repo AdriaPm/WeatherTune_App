@@ -1,24 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:weather_tune/components/hourly_weekly.dart';
+import 'package:weather_tune/pages/details_page.dart';
 
-class ExpandableBottomSheet extends StatefulWidget {
-  const ExpandableBottomSheet({super.key});
-
+class BottomSheetContainer extends StatefulWidget {
   @override
-  _ExpandableBottomSheetState createState() => _ExpandableBottomSheetState();
+  _BottomSheetContainerState createState() => _BottomSheetContainerState();
 }
 
-class _ExpandableBottomSheetState extends State<ExpandableBottomSheet> {
+class _BottomSheetContainerState extends State<BottomSheetContainer> {
   bool _isExpanded = false;
 
-  void _expandBottomSheet() {
+  void _toggleBottomSheet() {
     setState(() {
-      _isExpanded = true;
-    });
-  }
-
-  void _collapseBottomSheet() {
-    setState(() {
-      _isExpanded = false;
+      _isExpanded = !_isExpanded;
     });
   }
 
@@ -26,26 +20,35 @@ class _ExpandableBottomSheetState extends State<ExpandableBottomSheet> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onVerticalDragUpdate: (details) {
-        // Expand the bottom sheet if dragged up
-        if (details.primaryDelta! < -10) {
-          _expandBottomSheet();
+        if (!_isExpanded && details.primaryDelta! < -6) {
+          _toggleBottomSheet();
+        } else if (_isExpanded && details.primaryDelta! > 6) {
+          _toggleBottomSheet();
         }
-      },
-      onVerticalDragEnd: (details) {
-        // Collapse the bottom sheet if dragging ends
-        _collapseBottomSheet();
       },
       child: AnimatedContainer(
         duration: Duration(milliseconds: 300),
-        height: _isExpanded ? MediaQuery.of(context).size.height : 80.0,
+        height: _isExpanded ? MediaQuery.of(context).size.height : MediaQuery.of(context).size.height * 0.25,
         decoration: BoxDecoration(
-          color: Colors.grey[200],
-          borderRadius: BorderRadius.vertical(top: Radius.circular(20.0)),
         ),
-        child: Center(
-          child: Text('Drag me up for more info!'),
-        ),
+        child: _isExpanded ? FullScreenContent() : QuarterScreenContent(),
       ),
     );
+  }
+}
+
+class FullScreenContent extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: DetailsPage(),
+    );
+  }
+}
+
+class QuarterScreenContent extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return ForecastTabs();
   }
 }

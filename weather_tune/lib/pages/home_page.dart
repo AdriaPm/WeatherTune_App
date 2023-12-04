@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:weather_tune/bloc/weather_bloc_bloc.dart';
 import 'package:weather_tune/components/bottombar.dart';
-import 'package:weather_tune/components/button.dart';
 import 'package:weather_tune/components/slider_bottom_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -46,6 +45,7 @@ class _HomePageState extends State<HomePage> {
             home_active: true,
             profile_active: false,
             search_active: false),
+        bottomSheet: BottomSheetContainer(),
         body: Padding(
             padding: const EdgeInsets.fromLTRB(40, 20, 40, 20),
             child: SizedBox(
@@ -110,8 +110,13 @@ class _HomePageState extends State<HomePage> {
                                       fontSize: 25,
                                       fontWeight: FontWeight.bold),
                                 ),
-                                getWeatherIcon(
-                                    state.weather.weatherConditionCode!),
+                                Center(
+                                  child: SizedBox(
+                                    height: MediaQuery.of(context).size.height - 550,
+                                    child: getWeatherIcon(
+                                        state.weather.weatherConditionCode!),
+                                  ),
+                                ),
                                 Center(
                                   child: Text(
                                     "${state.weather.temperature!.celsius!.round()}ºC",
@@ -144,163 +149,7 @@ class _HomePageState extends State<HomePage> {
                                         fontWeight: FontWeight.w300),
                                   ),
                                 ),
-                                const SizedBox(
-                                  height: 30,
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Row(
-                                      children: [
-                                        Image.asset(
-                                          'images/weather_icons/11.png',
-                                          scale: 8,
-                                        ),
-                                        const SizedBox(
-                                          width: 5,
-                                        ),
-                                        Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            const Text(
-                                              "Sunrise",
-                                              style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontWeight: FontWeight.w300),
-                                            ),
-                                            const SizedBox(
-                                              height: 3,
-                                            ),
-                                            Text(
-                                              DateFormat().add_jm().format(
-                                                  state.weather.sunrise!),
-                                              style: const TextStyle(
-                                                  color: Colors.white,
-                                                  fontWeight: FontWeight.w700),
-                                            ),
-                                          ],
-                                        )
-                                      ],
-                                    ),
-                                    Row(
-                                      children: [
-                                        Image.asset(
-                                          'images/weather_icons/12.png',
-                                          scale: 8,
-                                        ),
-                                        const SizedBox(
-                                          width: 5,
-                                        ),
-                                        Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            const Text(
-                                              "Sunset",
-                                              style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontWeight: FontWeight.w300),
-                                            ),
-                                            const SizedBox(
-                                              height: 3,
-                                            ),
-                                            Text(
-                                              DateFormat().add_jm().format(
-                                                  state.weather.sunset!),
-                                              style: const TextStyle(
-                                                  color: Colors.white,
-                                                  fontWeight: FontWeight.w700),
-                                            ),
-                                          ],
-                                        )
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                                const Padding(
-                                  padding: EdgeInsets.symmetric(vertical: 5.0),
-                                  child: Divider(
-                                    color: Colors.grey,
-                                  ),
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Row(
-                                      children: [
-                                        Image.asset(
-                                          'images/weather_icons/13.png',
-                                          scale: 8,
-                                        ),
-                                        const SizedBox(
-                                          width: 5,
-                                        ),
-                                        Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            const Text(
-                                              "Temp Max",
-                                              style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontWeight: FontWeight.w300),
-                                            ),
-                                            const SizedBox(
-                                              height: 3,
-                                            ),
-                                            Text(
-                                              '${state.weather.tempMax!.celsius!.round()}ºC',
-                                              style: const TextStyle(
-                                                  color: Colors.white,
-                                                  fontWeight: FontWeight.w700),
-                                            ),
-                                          ],
-                                        )
-                                      ],
-                                    ),
-                                    Row(
-                                      children: [
-                                        Image.asset(
-                                          'images/weather_icons/14.png',
-                                          scale: 8,
-                                        ),
-                                        const SizedBox(
-                                          width: 5,
-                                        ),
-                                        Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            const Text(
-                                              "Temp Min",
-                                              style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontWeight: FontWeight.w300),
-                                            ),
-                                            const SizedBox(
-                                              height: 3,
-                                            ),
-                                            Text(
-                                              '${state.weather.tempMin!.celsius!.round()}ºC',
-                                              style: const TextStyle(
-                                                  color: Colors.white,
-                                                  fontWeight: FontWeight.w700),
-                                            ),
-                                          ],
-                                        )
-                                      ],
-                                    ),
-                                    ElevatedButton(
-                                        onPressed: () {
-                                          Navigator.pushNamed(
-                                              context, "/details");
-                                        },
-                                        child: const Text("More Info"))
-                                  ],
-                                ),
+
                               ]),
                         );
                       } else {
