@@ -44,7 +44,8 @@ class _HomePageState extends State<HomePage> {
             favorites_active: false,
             home_active: true,
             profile_active: false,
-            search_active: false),
+            search_active: false,
+            settings_active: false),
         bottomSheet: BottomSheetContainer(),
         body: Padding(
             padding: const EdgeInsets.fromLTRB(40, 20, 40, 20),
@@ -112,7 +113,8 @@ class _HomePageState extends State<HomePage> {
                                 ),
                                 Center(
                                   child: SizedBox(
-                                    height: MediaQuery.of(context).size.height - 550,
+                                    height: MediaQuery.of(context).size.height -
+                                        550,
                                     child: getWeatherIcon(
                                         state.weather.weatherConditionCode!),
                                   ),
@@ -149,7 +151,6 @@ class _HomePageState extends State<HomePage> {
                                         fontWeight: FontWeight.w300),
                                   ),
                                 ),
-
                               ]),
                         );
                       } else {

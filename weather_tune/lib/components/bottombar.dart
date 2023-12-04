@@ -8,12 +8,14 @@ class BottomBarWidget extends StatefulWidget {
       required this.favorites_active,
       required this.home_active,
       required this.profile_active,
-      required this.search_active});
+      required this.search_active,
+      required this.settings_active});
 
   bool home_active;
   bool favorites_active;
   bool search_active;
   bool profile_active;
+  bool settings_active;
 
   @override
   State<BottomBarWidget> createState() => _BottomBarWidgetState();
@@ -33,6 +35,18 @@ class _BottomBarWidgetState extends State<BottomBarWidget> {
 
   Icon Favorite2 = const Icon(
     Icons.favorite,
+    color: Color.fromARGB(255, 106, 0, 244),
+    size: 40,
+  );
+
+  Icon Settings1 = const Icon(
+    Icons.settings,
+    color: Colors.grey,
+    size: 40,
+  );
+
+  Icon Settings2 = const Icon(
+    Icons.settings,
     color: Color.fromARGB(255, 106, 0, 244),
     size: 40,
   );
@@ -72,6 +86,7 @@ class _BottomBarWidgetState extends State<BottomBarWidget> {
                 widget.favorites_active = false;
                 widget.search_active = false;
                 widget.profile_active = false;
+                widget.settings_active = false;
               });
             },
           ),
@@ -83,6 +98,7 @@ class _BottomBarWidgetState extends State<BottomBarWidget> {
                 widget.home_active = false;
                 widget.search_active = false;
                 widget.profile_active = false;
+                widget.settings_active = false;
               });
               // Add your logic here
             },
@@ -95,8 +111,21 @@ class _BottomBarWidgetState extends State<BottomBarWidget> {
                 widget.home_active = false;
                 widget.favorites_active = false;
                 widget.profile_active = false;
+                widget.settings_active = false;
               });
               // Add your logic here
+            },
+          ),
+          IconButton(
+            icon: widget.settings_active ? Settings2 : Settings1,
+            onPressed: () {
+              setState(() {
+                widget.settings_active = !widget.settings_active;
+                widget.search_active = false;
+                widget.home_active = false;
+                widget.favorites_active = false;
+                widget.profile_active = false;
+              });
             },
           ),
           IconButton(
