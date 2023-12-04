@@ -103,7 +103,7 @@ class WeeklyForecast extends StatelessWidget {
         child: Text(
           '${state.weatherlist.last}',
           style: TextStyle(
-            fontSize: 10.0,
+            fontSize: 12.0,
             color: Colors.black,
           ),
         ),
