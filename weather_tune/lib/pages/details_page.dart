@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_tune/bloc/weather_bloc_bloc.dart';
 import 'package:weather_tune/widgets/details_page/air_concentration.dart';
-import 'package:weather_tune/widgets/details_page/my_ubication_display.dart';
+import 'package:weather_tune/widgets/details_page/my_ubication.dart';
 
 class DetailsPage extends StatefulWidget {
   const DetailsPage({super.key});
@@ -58,7 +58,12 @@ class _DetailsPageState extends State<DetailsPage> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  AirConcentration(), // Add widget parameters to be passed from API
+                  // Widget to display
+                  AirConcentration(
+                    cloudiness: state.weather.cloudiness!.toInt(),
+                    humidity: state.weather.humidity!.toInt(),
+                    pressure: state.weather.pressure!.toInt(),
+                  ),
                 ],
               ),
             );
