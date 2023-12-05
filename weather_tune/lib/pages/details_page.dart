@@ -43,6 +43,8 @@ class _DetailsPageState extends State<DetailsPage> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  const Icon(Icons.keyboard_arrow_down_rounded,
+                      color: Colors.white),
                   //Widget to display my ubication basic info
                   MyUbication(
                     areaName: state.weather.areaName!,
@@ -67,14 +69,61 @@ class _DetailsPageState extends State<DetailsPage> {
                     pressure: state.weather.pressure!.toInt(),
                   ),
                   const SizedBox(height: 20),
-                  SquareInfoDisplay(
-                    icon: Icons.wb_sunny_rounded,
-                    infoTitle: "SUNRISE",
-                    data: DateFormat().add_jm().format(state.weather.sunrise!),
-                    additionalInfoTitle: "Sunset: ",
-                    additionalData:
-                        DateFormat().add_jm().format(state.weather.sunset!),
-                  )
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      SquareInfoDisplay(
+                        icon: Icons.water_drop_outlined,
+                        infoTitle: "RAIN",
+                        data: state.weather.rainLastHour.toString().isEmpty
+                            ? "${state.weather.rainLastHour.toString()} mm"
+                            : "0 mm",
+                        additionalInfoTitle: "Last 3 hours:",
+                        additionalData: state.weather.rainLast3Hours
+                                .toString()
+                                .isEmpty
+                            ? "${state.weather.rainLast3Hours.toString()} mm"
+                            : "0 mm",
+                      ),
+                      SquareInfoDisplay(
+                        icon: Icons.air_rounded,
+                        infoTitle: "WIND SPEED",
+                        data: ("${state.weather.windSpeed.toString()} m/s"),
+                        additionalInfoTitle: "Wind Direction:",
+                        additionalData:
+                            "${state.weather.windDegree.toString()}º",
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 20),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      SquareInfoDisplay(
+                        icon: Icons.wb_sunny_rounded,
+                        infoTitle: "SUNRISE",
+                        data: DateFormat()
+                            .add_jm()
+                            .format(state.weather.sunrise!),
+                        additionalInfoTitle: "Sunset: ",
+                        additionalData:
+                            DateFormat().add_jm().format(state.weather.sunset!),
+                      ),
+                      SquareInfoDisplay(
+                        icon: Icons.ac_unit_rounded,
+                        infoTitle: "SNOW",
+                        data: state.weather.snowLastHour.toString().isEmpty
+                            ? "${state.weather.snowLastHour.toString()} mm"
+                            : "0 mm",
+                        additionalInfoTitle: "Last 3 hours:",
+                        additionalData: state.weather.snowLast3Hours
+                                .toString()
+                                .isEmpty
+                            ? "${state.weather.snowLast3Hours.toString()} mm"
+                            : "0 mm",
+                      ),
+                    ],
+                  ),
                 ],
               ),
             );

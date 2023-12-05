@@ -61,7 +61,7 @@ class _AirConcentrationState extends State<AirConcentration> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Icon(
-                Icons.air_rounded,
+                Icons.waves_outlined,
                 color: Colors.white70,
               ),
               SizedBox(width: 5),

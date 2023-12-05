@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class SquareInfoDisplay extends StatefulWidget {
@@ -13,9 +12,9 @@ class SquareInfoDisplay extends StatefulWidget {
 
   final IconData icon;
   final String infoTitle;
-  final String data;
+  final String? data;
   final String additionalInfoTitle;
-  final String additionalData;
+  final String? additionalData;
 
   @override
   State<SquareInfoDisplay> createState() => _SquareInfoDisplayState();
@@ -32,8 +31,8 @@ class _SquareInfoDisplayState extends State<SquareInfoDisplay> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 150,
-      width: 150,
+      width: 200,
+      height: 130,
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: gradientSquareColors,
@@ -55,8 +54,9 @@ class _SquareInfoDisplayState extends State<SquareInfoDisplay> {
         ],
       ),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          const SizedBox(height: 20),
+          const SizedBox(height: 10),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -77,7 +77,7 @@ class _SquareInfoDisplayState extends State<SquareInfoDisplay> {
             ],
           ),
           Text(
-            widget.data,
+            widget.data!,
             style: const TextStyle(
               color: Colors.white,
               fontSize: 22,
@@ -94,13 +94,14 @@ class _SquareInfoDisplayState extends State<SquareInfoDisplay> {
             ),
           ),
           Text(
-            widget.additionalData,
+            widget.additionalData!,
             style: const TextStyle(
               color: Colors.white,
               fontSize: 20,
               fontWeight: FontWeight.w500,
             ),
-          )
+          ),
+          const SizedBox(height: 10),
         ],
       ),
     );
