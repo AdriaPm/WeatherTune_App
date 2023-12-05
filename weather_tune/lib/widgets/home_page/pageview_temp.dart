@@ -22,51 +22,51 @@ class TempInfo extends StatefulWidget {
 }
 
 class _TempInfoState extends State<TempInfo> {
+  List<Color> gradientSquareColors = [
+    Colors.indigo.shade900,
+    Colors.indigo,
+    Colors.deepPurple,
+    Colors.purple,
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: EdgeInsets.all(16.0),
-        color: Colors.transparent,
+        height: 150,
+        width: 150,
+        decoration:
+            BoxDecoration(color: const Color.fromARGB(255, 243, 35, 35)),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Container(
-              decoration: BoxDecoration(
-                  color: Colors.transparent,
-                  borderRadius: BorderRadius.circular(20),
-                  border: Border.all(width: 2)),
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Image(
+                  image: AssetImage(
+                    widget.imagePathrise,
+                  ),
+                  height: 80,
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Image(
-                      image: AssetImage(
-                        widget.imagePathrise,
-                      ),
-                      height: 80,
+                    Text(
+                      '${widget.apiinputmax}ºC',
+                      style: const TextStyle(
+                          color: Colors.white, fontWeight: FontWeight.w700),
                     ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          '${widget.apiinputmax}ºC',
-                          style: const TextStyle(
-                              color: Colors.white, fontWeight: FontWeight.w700),
-                        ),
-                        Text(
-                          widget.captionrise,
-                          softWrap: true,
-                        )
-                      ],
+                    Text(
+                      widget.captionrise,
+                      softWrap: true,
                     )
                   ],
-                ),
-              ),
+                )
+              ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,

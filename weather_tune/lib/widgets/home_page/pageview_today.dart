@@ -23,11 +23,17 @@ class SunInfo extends StatefulWidget {
 }
 
 class _SunInfoState extends State<SunInfo> {
+  List<Color> gradientSquareColors = [
+    Colors.indigo.shade900,
+    Colors.indigo,
+    Colors.deepPurple,
+    Colors.purple,
+  ];
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: EdgeInsets.all(16.0),
-        color: Colors.transparent,
+        decoration: BoxDecoration(
+            color: Colors.transparent, borderRadius: BorderRadius.circular(60)),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
@@ -38,7 +44,7 @@ class _SunInfoState extends State<SunInfo> {
                   image: AssetImage(
                     widget.imagePathrise,
                   ),
-                  height: 80,
+                  height: 60,
                 ),
                 const SizedBox(
                   width: 10,
@@ -65,7 +71,7 @@ class _SunInfoState extends State<SunInfo> {
               children: [
                 Image(
                   image: AssetImage(widget.imagePathset),
-                  height: 80,
+                  height: 60,
                 ),
                 const SizedBox(
                   width: 10,

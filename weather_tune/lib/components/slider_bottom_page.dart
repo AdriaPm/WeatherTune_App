@@ -27,10 +27,20 @@ class _BottomSheetContainerState extends State<BottomSheetContainer> {
         }
       },
       child: AnimatedContainer(
-        duration: Duration(milliseconds: 300),
-        height: _isExpanded ? MediaQuery.of(context).size.height : MediaQuery.of(context).size.height * 0.25,
         decoration: BoxDecoration(
+          color: const Color.fromARGB(178, 0, 0, 0),
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(40.0),
+            topRight: Radius.circular(40.0),
+          ),
         ),
+        duration: Duration(milliseconds: 300),
+        height: _isExpanded
+            ? MediaQuery.of(context).size.height
+            : MediaQuery.of(context).size.height * 0.25,
+        width: _isExpanded
+            ? MediaQuery.of(context).size.width
+            : MediaQuery.of(context).size.width,
         child: _isExpanded ? FullScreenContent() : QuarterScreenContent(),
       ),
     );
@@ -40,9 +50,7 @@ class _BottomSheetContainerState extends State<BottomSheetContainer> {
 class FullScreenContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: DetailsPage(),
-    );
+    return const Scaffold(body: DetailsPage());
   }
 }
 
@@ -50,5 +58,39 @@ class QuarterScreenContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ForecastTabs();
+  }
+}
+
+class MyCustomClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    final path = Path();
+    path.lineTo(0, size.height); // Start at the bottom-left corner
+
+    // Define the rounded top-left corner
+    path.lineTo(0, 40); // Move to the top-left corner
+    path.arcToPoint(
+      Offset(40, 0),
+      radius: Radius.circular(40),
+      clockwise: false,
+    );
+
+    // Define the rounded top-right corner
+    path.lineTo(size.width - 40, 0); // Move to the top-right corner
+    path.arcToPoint(
+      Offset(size.width, 40),
+      radius: Radius.circular(40),
+      clockwise: false,
+    );
+
+    path.lineTo(size.width, size.height); // Line to the bottom-right corner
+    path.close(); // Close the path
+
+    return path;
+  }
+
+  @override
+  bool shouldReclip(covariant CustomClipper<Path> oldClipper) {
+    return false;
   }
 }

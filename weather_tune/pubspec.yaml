@@ -92,6 +92,7 @@ flutter:
     - images/weather_icons/12.png
     - images/weather_icons/13.png
     - images/weather_icons/14.png
+    - images/HomeBackground/background.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
