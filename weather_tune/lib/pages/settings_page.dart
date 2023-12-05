@@ -46,7 +46,24 @@ class SettingsPage extends StatelessWidget {
           title: "Units",
           child: const Align(
               alignment: Alignment.centerLeft,
-              child: Text("English", style: TextStyle(color: Colors.white)))),
+              child: Column(
+                children: [
+                  Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text("Celsius (Cº)",
+                          style: TextStyle(color: Colors.white))),
+                  SizedBox(height: 5),
+                  Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text("Fahrenheit (Fº)",
+                          style: TextStyle(color: Colors.white))),
+                  SizedBox(height: 5),
+                  Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text("Kelvin (K)",
+                          style: TextStyle(color: Colors.white))),
+                ],
+              ))),
       SizedBox(height: margins),
       DropDownButton(
           widgetWidth: MediaQuery.sizeOf(context).width,

@@ -29,7 +29,13 @@ class _DropDownButtonState extends State<DropDownButton> {
           padding: const EdgeInsets.all(10),
           width: widget.widgetWidth,
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20), color: Colors.purple),
+            borderRadius: BorderRadius.circular(20),
+            gradient: const LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [Colors.deepPurple, Color.fromARGB(255, 199, 44, 226)],
+            ),
+          ),
           child: Column(
             children: [
               Row(
@@ -49,7 +55,8 @@ class _DropDownButtonState extends State<DropDownButton> {
               ),
               if (selected)
                 Container(
-                    padding: const EdgeInsets.all(5), child: widget.child),
+                    padding: const EdgeInsets.fromLTRB(5, 10, 5, 5),
+                    child: widget.child),
             ],
           )),
     );
