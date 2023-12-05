@@ -75,48 +75,53 @@ class MapSampleState extends State<MapSample> {
             },
             tileOverlays: _tileOverLays,
           ),
-          Stack(
-            children: [
+          Positioned(
+            bottom: 30,
+            child: SizedBox(
+              height: 70,
+              width: MediaQuery.of(context).size.width,
+              child: Stack(
+                children: [
+                  Positioned(
+                    bottom: 30,
+                    left: 30,
+                    child: ElevatedButton(style: ElevatedButton.styleFrom(
+                        shape: CircleBorder(),
+                        padding: EdgeInsets.all(20),
+                      ),
+                      onPressed: _controller == null ? null : (){
+                        setState(() {
+                          _changeDate(const Duration(hours: -3));
+                        });
+                        
+                      },
+                      child: const Icon(
+                        Icons.arrow_back_rounded,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
               Positioned(
-                bottom: 30,
-                left: 30,
+                right: 30,
                 child: ElevatedButton(style: ElevatedButton.styleFrom(
                     shape: CircleBorder(),
                     padding: EdgeInsets.all(20),
                   ),
                   onPressed: _controller == null ? null : (){
                     setState(() {
-                      _changeDate(const Duration(hours: -3));
+                      _changeDate(const Duration(hours: 3));
                     });
-                    
                   },
                   child: const Icon(
-                    Icons.arrow_back_rounded,
+                    Icons.arrow_forward_ios_rounded,
                     color: Colors.white,
                   ),
                 ),
-              ),
-            
-          Positioned(
-            bottom: 30,
-            right: 30,
-            child: ElevatedButton(style: ElevatedButton.styleFrom(
-                shape: CircleBorder(),
-                padding: EdgeInsets.all(20),
-              ),
-              onPressed: _controller == null ? null : (){
-                setState(() {
-                  _changeDate(const Duration(hours: 3));
-                });
-              },
-              child: const Icon(
-                Icons.arrow_forward_ios_rounded,
-                color: Colors.white,
-              ),
+              )
+              ],
             ),
-          )
-          ],
-        ),
+            ),
+          ),
         ],
       ),
     );
