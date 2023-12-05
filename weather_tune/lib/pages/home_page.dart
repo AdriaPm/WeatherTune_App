@@ -35,6 +35,31 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
+  DecorationImage getBackground(String description) {
+    switch (description) {
+      case "Clouds":
+        return DecorationImage(
+          fit: BoxFit.cover,
+          image: Image.asset(
+            "images/HomeBackground/background_cloud.jpg",
+          ).image,
+        );
+      case "Clear":
+        return DecorationImage(
+          fit: BoxFit.cover,
+          image: Image.asset(
+            "images/HomeBackground/background_clear.jpg",
+          ).image,
+        );
+      default:
+        return DecorationImage(
+            fit: BoxFit.cover,
+            image: Image.asset(
+              "images/loginbackground.jpg",
+            ).image);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,22 +71,17 @@ class _HomePageState extends State<HomePage> {
             profile_active: false,
             search_active: false,
             settings_active: false),
-        body: Container(
-            width: MediaQuery.sizeOf(context).width,
-            height: MediaQuery.sizeOf(context).height,
-            decoration: BoxDecoration(
-              color: const Color.fromARGB(78, 20, 24, 27),
-              image: DecorationImage(
-                fit: BoxFit.cover,
-                image: Image.asset(
-                  "images/HomeBackground/background.jpg",
-                ).image,
-              ),
-            ),
-            child: BlocBuilder<WeatherBlocBloc, WeatherBlocState>(
-              builder: (context, state) {
-                if (state is WeatherBlocSuccess) {
-                  return Stack(children: [
+        body: BlocBuilder<WeatherBlocBloc, WeatherBlocState>(
+          builder: (context, state) {
+            if (state is WeatherBlocSuccess) {
+              return Container(
+                  width: MediaQuery.sizeOf(context).width,
+                  height: MediaQuery.sizeOf(context).height,
+                  decoration: BoxDecoration(
+                    color: const Color.fromARGB(78, 20, 24, 27),
+                    image: getBackground(state.weather.weatherMain!),
+                  ),
+                  child: Stack(children: [
                     Padding(
                       padding: const EdgeInsets.fromLTRB(40, 20, 40, 20),
                       child: SizedBox(
@@ -133,11 +153,11 @@ class _HomePageState extends State<HomePage> {
                       alignment: Alignment.bottomCenter,
                       child: BottomSheetContainer(),
                     ),
-                  ]);
-                } else {
-                  return Container();
-                }
-              },
-            )));
+                  ]));
+            } else {
+              return Container();
+            }
+          },
+        ));
   }
 }

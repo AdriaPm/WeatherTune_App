@@ -27,14 +27,14 @@ class _BottomBarWidgetState extends State<BottomBarWidget> {
     FirebaseAuth.instance.signOut();
   }
 
-  Icon Favorite1 = const Icon(
-    Icons.favorite_border_outlined,
+  Icon List1 = const Icon(
+    Icons.list_rounded,
     color: Colors.grey,
     size: 40,
   );
 
-  Icon Favorite2 = const Icon(
-    Icons.favorite,
+  Icon List2 = const Icon(
+    Icons.list_rounded,
     color: Color.fromARGB(255, 106, 0, 244),
     size: 40,
   );
@@ -51,13 +51,13 @@ class _BottomBarWidgetState extends State<BottomBarWidget> {
     size: 40,
   );
 
-  Icon Search1 = const Icon(
-    Icons.search_outlined,
+  Icon Radar1 = const Icon(
+    Icons.radar_outlined,
     color: Colors.grey,
     size: 40,
   );
-  Icon Search2 = const Icon(
-    Icons.search,
+  Icon Radar2 = const Icon(
+    Icons.radar_rounded,
     color: Color.fromARGB(255, 106, 0, 244),
     size: 40,
   );
@@ -91,7 +91,8 @@ class _BottomBarWidgetState extends State<BottomBarWidget> {
             },
           ),
           IconButton(
-            icon: widget.favorites_active ? Favorite2 : Favorite1,
+            iconSize: 40,
+            icon: widget.favorites_active ? List2 : List1,
             onPressed: () {
               setState(() {
                 widget.favorites_active = !widget.favorites_active;
@@ -104,7 +105,8 @@ class _BottomBarWidgetState extends State<BottomBarWidget> {
             },
           ),
           IconButton(
-            icon: widget.search_active ? Search2 : Search1,
+            iconSize: 40,
+            icon: widget.search_active ? Radar2 : Radar1,
             onPressed: () {
               setState(() {
                 widget.search_active = !widget.search_active;
@@ -117,6 +119,7 @@ class _BottomBarWidgetState extends State<BottomBarWidget> {
             },
           ),
           IconButton(
+            iconSize: 40,
             icon: widget.settings_active ? Settings2 : Settings1,
             onPressed: () {
               setState(() {
@@ -128,13 +131,13 @@ class _BottomBarWidgetState extends State<BottomBarWidget> {
               });
             },
           ),
-          IconButton(
-              onPressed: signOut,
-              icon: const Icon(
-                Icons.logout,
-                color: Colors.grey,
-                size: 40,
-              ))
+          //IconButton(
+          //  onPressed: signOut,
+          //icon: const Icon(
+          //Icons.logout,
+          //color: Colors.grey,
+          //size: 40,
+          //))
         ],
       ),
     );

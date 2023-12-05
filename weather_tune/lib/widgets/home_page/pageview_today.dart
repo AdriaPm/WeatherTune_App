@@ -44,7 +44,7 @@ class _SunInfoState extends State<SunInfo> {
                   image: AssetImage(
                     widget.imagePathrise,
                   ),
-                  height: 60,
+                  height: 80,
                 ),
                 const SizedBox(
                   width: 10,
@@ -56,11 +56,14 @@ class _SunInfoState extends State<SunInfo> {
                     Text(
                       DateFormat().add_jm().format(widget.apiinputrise),
                       style: const TextStyle(
-                          color: Colors.white, fontWeight: FontWeight.w700),
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.w700),
                     ),
                     Text(
                       widget.captionrise,
                       softWrap: true,
+                      style: const TextStyle(fontSize: 12, color: Colors.white),
                     )
                   ],
                 )
@@ -71,7 +74,7 @@ class _SunInfoState extends State<SunInfo> {
               children: [
                 Image(
                   image: AssetImage(widget.imagePathset),
-                  height: 60,
+                  height: 80,
                 ),
                 const SizedBox(
                   width: 10,
@@ -83,11 +86,14 @@ class _SunInfoState extends State<SunInfo> {
                     Text(
                       DateFormat().add_jm().format(widget.apiinputset),
                       style: const TextStyle(
-                          color: Colors.white, fontWeight: FontWeight.w700),
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.w700),
                     ),
                     Text(
                       widget.captionset,
                       softWrap: true,
+                      style: const TextStyle(fontSize: 12, color: Colors.white),
                     )
                   ],
                 )
