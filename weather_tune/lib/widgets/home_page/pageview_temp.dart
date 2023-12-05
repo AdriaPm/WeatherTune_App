@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class TempInfo extends StatefulWidget {
-  TempInfo(
+  const TempInfo(
       {super.key,
       required this.apiinputmax,
       required this.captionrise,
@@ -10,12 +10,12 @@ class TempInfo extends StatefulWidget {
       required this.captionset,
       required this.imagePathset});
 
-  int apiinputmax;
-  String captionrise;
-  String imagePathrise;
-  int apiinputmin;
-  String captionset;
-  String imagePathset;
+  final int apiinputmax;
+  final String captionrise;
+  final String imagePathrise;
+  final int apiinputmin;
+  final String captionset;
+  final String imagePathset;
 
   @override
   State<TempInfo> createState() => _TempInfoState();

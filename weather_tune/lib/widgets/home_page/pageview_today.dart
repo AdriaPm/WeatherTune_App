@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class SunInfo extends StatefulWidget {
-  SunInfo(
+  const SunInfo(
       {super.key,
       required this.apiinputrise,
       required this.captionrise,
@@ -11,12 +11,12 @@ class SunInfo extends StatefulWidget {
       required this.captionset,
       required this.imagePathset});
 
-  DateTime apiinputrise;
-  String captionrise;
-  String imagePathrise;
-  DateTime apiinputset;
-  String captionset;
-  String imagePathset;
+  final DateTime apiinputrise;
+  final String captionrise;
+  final String imagePathrise;
+  final DateTime apiinputset;
+  final String captionset;
+  final String imagePathset;
 
   @override
   State<SunInfo> createState() => _SunInfoState();

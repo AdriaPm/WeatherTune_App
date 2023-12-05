@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 import 'package:weather_tune/bloc/weather_bloc_bloc.dart';
 import 'package:weather_tune/widgets/details_page/air_concentration.dart';
 import 'package:weather_tune/widgets/details_page/my_ubication.dart';
+import 'package:weather_tune/widgets/details_page/square_info.dart';
 
 class DetailsPage extends StatefulWidget {
   const DetailsPage({super.key});
@@ -58,12 +60,21 @@ class _DetailsPageState extends State<DetailsPage> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  // Widget to display
+                  // Widget to display detailed air concentration
                   AirConcentration(
                     cloudiness: state.weather.cloudiness!.toInt(),
                     humidity: state.weather.humidity!.toInt(),
                     pressure: state.weather.pressure!.toInt(),
                   ),
+                  const SizedBox(height: 20),
+                  SquareInfoDisplay(
+                    icon: Icons.wb_sunny_rounded,
+                    infoTitle: "SUNRISE",
+                    data: DateFormat().add_jm().format(state.weather.sunrise!),
+                    additionalInfoTitle: "Sunset: ",
+                    additionalData:
+                        DateFormat().add_jm().format(state.weather.sunset!),
+                  )
                 ],
               ),
             );
