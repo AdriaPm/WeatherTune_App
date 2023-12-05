@@ -6,26 +6,19 @@ class MyUbication extends StatelessWidget {
     required this.areaName,
     required this.maxTemp,
     required this.minTemp,
+    required this.feelsLikeTemp,
   });
 
   final String areaName;
   final int maxTemp;
   final int minTemp;
+  final int feelsLikeTemp;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Text(
-          "My ubication:",
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 18,
-            fontWeight: FontWeight.w200,
-          ),
-        ),
-        const SizedBox(height: 15),
         Text(
           '📍 $areaName',
           style: const TextStyle(
@@ -57,7 +50,15 @@ class MyUbication extends StatelessWidget {
               ),
             ),
           ],
-        )
+        ),
+        const SizedBox(height: 10),
+        Text(
+          'Feels like: $feelsLikeTempºC',
+          style: TextStyle(
+            color: Colors.grey.shade400,
+            fontSize: 16,
+          ),
+        ),
       ],
     );
   }
