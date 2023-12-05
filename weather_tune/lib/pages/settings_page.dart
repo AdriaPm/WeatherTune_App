@@ -3,18 +3,65 @@ import 'package:weather_tune/components/dropdown_button.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
+  final double margins = 5;
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
         body: Center(
             child: Column(children: [
       DropDownButton(
-          widgetWidth: 200,
+          widgetWidth: MediaQuery.sizeOf(context).width,
           title: "Language",
-          child: Align(
+          child: const Align(
               alignment: Alignment.centerLeft,
-              child: Text("English", style: TextStyle(color: Colors.white))))
+              child: Column(
+                children: [
+                  Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text("English",
+                          style: TextStyle(color: Colors.white))),
+                  SizedBox(height: 5),
+                  Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text("Spanish",
+                          style: TextStyle(color: Colors.white))),
+                  SizedBox(height: 5),
+                  Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text("French",
+                          style: TextStyle(color: Colors.white))),
+                ],
+              ))),
+      SizedBox(height: margins),
+      DropDownButton(
+          widgetWidth: MediaQuery.sizeOf(context).width,
+          title: "Alerts",
+          child: const Align(
+              alignment: Alignment.centerLeft,
+              child: Text("English", style: TextStyle(color: Colors.white)))),
+      SizedBox(height: margins),
+      DropDownButton(
+          widgetWidth: MediaQuery.sizeOf(context).width,
+          title: "Units",
+          child: const Align(
+              alignment: Alignment.centerLeft,
+              child: Text("English", style: TextStyle(color: Colors.white)))),
+      SizedBox(height: margins),
+      DropDownButton(
+          widgetWidth: MediaQuery.sizeOf(context).width,
+          title: "Location Services",
+          child: const Align(
+              alignment: Alignment.centerLeft,
+              child: Text("English", style: TextStyle(color: Colors.white)))),
+      SizedBox(height: margins),
+      DropDownButton(
+          widgetWidth: MediaQuery.sizeOf(context).width,
+          title: "Weather Services",
+          child: const Align(
+              alignment: Alignment.centerLeft,
+              child: Text("English", style: TextStyle(color: Colors.white)))),
+      SizedBox(height: margins),
     ])));
   }
 }

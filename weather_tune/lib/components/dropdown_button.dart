@@ -26,18 +26,20 @@ class _DropDownButtonState extends State<DropDownButton> {
         });
       },
       child: Container(
-          padding: const EdgeInsets.all(5),
+          padding: const EdgeInsets.all(10),
           width: widget.widgetWidth,
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15), color: Colors.purple),
+              borderRadius: BorderRadius.circular(20), color: Colors.purple),
           child: Column(
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(widget.title,
-                      style:
-                          const TextStyle(color: Colors.white, fontSize: 16)),
+                      style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold)),
                   selected
                       ? const Icon(Icons.keyboard_arrow_down,
                           color: Colors.white)
