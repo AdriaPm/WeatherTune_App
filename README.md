@@ -9,6 +9,7 @@ WeatherTune is a sleek and intuitive weather forecast app developed by a  team o
 - **Real-time Weather Updates:** Get up-to-the-minute weather information for your location.
 - **4-Day Forecast:** Plan your week with a detailed 4-day weather forecast.
 - **Intuitive Interface:** User-friendly design for a seamless experience.
+- ***[OpenWeatherMap API](https://openweathermap.org/api)***: Simple, fast and free weather API to get data in a rapid and easy-to-use way.
 
 ## Developers Team
 
@@ -26,3 +27,6 @@ If you encounter any issues or have suggestions for improvement, please [create 
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](https://github.com/RylanJGraham/WeatherTune/blob/main/LICENSE) for further details.
+
+
+***WeatherTune is not affiliated with any official weather service and is developed for educational purposes.***
