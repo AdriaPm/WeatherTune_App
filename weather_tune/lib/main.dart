@@ -25,7 +25,6 @@ class MyApp extends StatelessWidget {
         "/details": (context) => const DetailsAPI(),
       },
       home: const SplashPage(screenLoadingTime: 4),
-      //home: const SettingsPage(),
     );
   }
 }

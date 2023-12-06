@@ -8,7 +8,7 @@ class AirConcentration extends StatefulWidget {
     required this.pressure,
   });
 
-  /// Cloudiness in Okta scale (0-9)
+  /// Cloudiness in Okta scale
   final int cloudiness;
 
   /// Humidity in percentage
@@ -87,7 +87,7 @@ class _AirConcentrationState extends State<AirConcentration> {
                 ),
               ),
               Text(
-                " ${widget.cloudiness}/9 (Okla Scale)",
+                " ${widget.cloudiness} (Okla Scale)",
                 style: const TextStyle(
                   color: Colors.white,
                   fontSize: 18,

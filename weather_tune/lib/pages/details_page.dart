@@ -21,6 +21,8 @@ class _DetailsPageState extends State<DetailsPage> {
     Colors.purple,
   ];
 
+  double msTokmh = 3.6;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -88,7 +90,8 @@ class _DetailsPageState extends State<DetailsPage> {
                       SquareInfoDisplay(
                         icon: Icons.air_rounded,
                         infoTitle: "WIND SPEED",
-                        data: ("${state.weather.windSpeed.toString()} m/s"),
+                        data:
+                            ("${(state.weather.windSpeed! * msTokmh).roundToDouble().toString()} km/h"),
                         additionalInfoTitle: "Wind Direction:",
                         additionalData:
                             "${state.weather.windDegree.toString()}º",

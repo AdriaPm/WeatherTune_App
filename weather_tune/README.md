@@ -1,16 +1,28 @@
-# weather_tune
+# WeatherTune
 
-A new Flutter project.
+## Overview
 
-## Getting Started
+WeatherTune is a sleek and intuitive weather forecast app developed by a  team of four students from CITM-UPC University. Stay ahead of the weather with accurate forecasts and a delightful user experience.
 
-This project is a starting point for a Flutter application.
+## Features
 
-A few resources to get you started if this is your first Flutter project:
+- **Real-time Weather Updates:** Get up-to-the-minute weather information for your location.
+- **4-Day Forecast:** Plan your week with a detailed 4-day weather forecast.
+- **Intuitive Interface:** User-friendly design for a seamless experience.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Developers Team
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+WeatherTune is the collaborative effort of four passionate students from CITM-UPC University:
+
+- **[Rylan Graham](https://github.com/RylanJGraham)**
+- **[Adria Pons](https://github.com/AdriaPm)**
+- **[Joel Chaves](https://github.com/joeycm)**
+- **[Xavi Alcañiz](https://github.com/StarvinXarvin)**
+
+## Feedback and Issues
+
+If you encounter any issues or have suggestions for improvement, please [create an issue](https://github.com/RylanJGraham/WeatherTune/issues). We appreciate your feedback!
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](https://github.com/RylanJGraham/WeatherTune/blob/main/LICENSE) for further details.
