@@ -63,33 +63,24 @@ class _SplashPageState extends State<SplashPage> {
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: backgroundGradientColors,
-          ),
+          color: Colors.black,
         ),
         child: Center(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(
-                "images/WeatherTuneLogo_ORIGINAL.png",
+                "images/WeatherTuneLogo_BIG.png",
                 scale: 1,
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.1,
               ),
               CircularProgressIndicator(
                 color: Colors.purple.shade900,
                 strokeAlign: 3,
                 strokeCap: StrokeCap.round,
                 strokeWidth: 8,
-              ),
-              SizedBox(
-                width: 200,
-                child: LinearProgressIndicator(
-                  value: sliderValue,
-                  color: Colors.pink.shade600,
-                  backgroundColor: Colors.purple.shade900,
-                ),
               ),
             ],
           ),
