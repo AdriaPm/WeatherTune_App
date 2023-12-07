@@ -22,9 +22,9 @@ class SquareInfoDisplay extends StatefulWidget {
 
 class _SquareInfoDisplayState extends State<SquareInfoDisplay> {
   List<Color> gradientSquareColors = [
-    Colors.indigo.shade900,
-    Colors.indigo,
-    Colors.deepPurple,
+    Colors.transparent,
+    const Color.fromARGB(93, 63, 81, 181),
+    const Color.fromARGB(148, 104, 58, 183),
     Colors.purple,
   ];
 
@@ -46,7 +46,7 @@ class _SquareInfoDisplayState extends State<SquareInfoDisplay> {
         borderRadius: BorderRadius.circular(30),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.4),
+            color: Colors.black.withOpacity(0.15),
             spreadRadius: 4,
             blurRadius: 7,
             offset: const Offset(1, 3),

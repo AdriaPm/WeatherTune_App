@@ -23,9 +23,9 @@ class AirConcentration extends StatefulWidget {
 
 class _AirConcentrationState extends State<AirConcentration> {
   List<Color> gradientColors = [
-    Colors.indigo.shade900,
-    Colors.indigo,
-    Colors.deepPurple,
+    Colors.transparent,
+    const Color.fromARGB(93, 63, 81, 181),
+    const Color.fromARGB(148, 104, 58, 183),
     Colors.purple,
   ];
 
@@ -35,7 +35,11 @@ class _AirConcentrationState extends State<AirConcentration> {
       width: MediaQuery.of(context).size.width - 50,
       height: 150,
       decoration: BoxDecoration(
-        color: Color.fromARGB(178, 0, 0, 0),
+        gradient: LinearGradient(
+          colors: gradientColors,
+          begin: AlignmentDirectional.bottomStart,
+          end: Alignment.topRight,
+        ),
         border: Border.all(
           color: const Color.fromARGB(255, 247, 196, 213),
           width: 1.5,
@@ -43,7 +47,7 @@ class _AirConcentrationState extends State<AirConcentration> {
         borderRadius: BorderRadius.circular(30),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.4),
+            color: Colors.black.withOpacity(0.15),
             spreadRadius: 4,
             blurRadius: 7,
             offset: const Offset(1, 3),

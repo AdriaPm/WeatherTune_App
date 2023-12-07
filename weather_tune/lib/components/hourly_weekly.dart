@@ -6,6 +6,8 @@ import 'package:weather_tune/widgets/home_page/pageview_temp.dart';
 import 'package:weather_tune/widgets/home_page/pageview_today.dart';
 
 class ForecastTabs extends StatefulWidget {
+  const ForecastTabs({super.key});
+
   @override
   _ForecastTabsState createState() => _ForecastTabsState();
 }
@@ -38,8 +40,8 @@ class _ForecastTabsState extends State<ForecastTabs>
           TabBar(
             controller: _tabController,
             labelColor: Colors.white,
-            unselectedLabelColor: Colors.grey,
-            indicator: BoxDecoration(),
+            unselectedLabelColor: Colors.grey.shade700,
+            indicator: const BoxDecoration(),
             tabs: const [
               Tab(
                 child: Text(
@@ -58,7 +60,7 @@ class _ForecastTabsState extends State<ForecastTabs>
           Expanded(
             child: TabBarView(
               controller: _tabController,
-              children: [
+              children: const [
                 HourlyForecast(),
                 WeeklyForecast(),
               ],
@@ -71,6 +73,8 @@ class _ForecastTabsState extends State<ForecastTabs>
 }
 
 class HourlyForecast extends StatelessWidget {
+  const HourlyForecast({super.key});
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<WeatherBlocBloc, WeatherBlocState>(
@@ -104,6 +108,8 @@ class HourlyForecast extends StatelessWidget {
 }
 
 class WeeklyForecast extends StatelessWidget {
+  const WeeklyForecast({super.key});
+
   Widget getWeatherIcon(int code) {
     switch (code) {
       case >= 200 && < 300:
@@ -138,9 +144,9 @@ class WeeklyForecast extends StatelessWidget {
             itemBuilder: (BuildContext context, int index) {
               return Container(
                 width: 65,
-                margin: EdgeInsets.all(8),
+                margin: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                    color: Color.fromARGB(185, 61, 45, 143),
+                    color: const Color.fromARGB(185, 61, 45, 143),
                     borderRadius: BorderRadius.circular(40)),
                 // You can set different colors or styles here
                 child: Center(

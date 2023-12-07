@@ -3,6 +3,8 @@ import 'package:weather_tune/components/hourly_weekly.dart';
 import 'package:weather_tune/pages/details_page.dart';
 
 class BottomSheetContainer extends StatefulWidget {
+  const BottomSheetContainer({super.key});
+
   @override
   _BottomSheetContainerState createState() => _BottomSheetContainerState();
 }
@@ -27,27 +29,31 @@ class _BottomSheetContainerState extends State<BottomSheetContainer> {
         }
       },
       child: AnimatedContainer(
-        decoration: BoxDecoration(
-          color: const Color.fromARGB(178, 0, 0, 0),
+        decoration: const BoxDecoration(
+          color: Color.fromARGB(178, 0, 0, 0),
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(40.0),
             topRight: Radius.circular(40.0),
           ),
         ),
-        duration: Duration(milliseconds: 300),
+        duration: const Duration(milliseconds: 300),
         height: _isExpanded
             ? MediaQuery.of(context).size.height
             : MediaQuery.of(context).size.height * 0.25,
         width: _isExpanded
             ? MediaQuery.of(context).size.width
             : MediaQuery.of(context).size.width,
-        child: _isExpanded ? FullScreenContent() : QuarterScreenContent(),
+        child: _isExpanded
+            ? const FullScreenContent()
+            : const QuarterScreenContent(),
       ),
     );
   }
 }
 
 class FullScreenContent extends StatelessWidget {
+  const FullScreenContent({super.key});
+
   @override
   Widget build(BuildContext context) {
     return const Scaffold(body: DetailsPage());
@@ -55,6 +61,8 @@ class FullScreenContent extends StatelessWidget {
 }
 
 class QuarterScreenContent extends StatelessWidget {
+  const QuarterScreenContent({super.key});
+
   @override
   Widget build(BuildContext context) {
     return ForecastTabs();
@@ -70,8 +78,8 @@ class MyCustomClipper extends CustomClipper<Path> {
     // Define the rounded top-left corner
     path.lineTo(0, 40); // Move to the top-left corner
     path.arcToPoint(
-      Offset(40, 0),
-      radius: Radius.circular(40),
+      const Offset(40, 0),
+      radius: const Radius.circular(40),
       clockwise: false,
     );
 
@@ -79,7 +87,7 @@ class MyCustomClipper extends CustomClipper<Path> {
     path.lineTo(size.width - 40, 0); // Move to the top-right corner
     path.arcToPoint(
       Offset(size.width, 40),
-      radius: Radius.circular(40),
+      radius: const Radius.circular(40),
       clockwise: false,
     );
 
