@@ -35,11 +35,7 @@ class _AirConcentrationState extends State<AirConcentration> {
       width: MediaQuery.of(context).size.width - 50,
       height: 150,
       decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: gradientColors,
-          begin: AlignmentDirectional.bottomStart,
-          end: Alignment.topRight,
-        ),
+        color: Color.fromARGB(178, 0, 0, 0),
         border: Border.all(
           color: const Color.fromARGB(255, 247, 196, 213),
           width: 1.5,

@@ -21,6 +21,31 @@ class _DetailsPageState extends State<DetailsPage> {
     Colors.purple,
   ];
 
+  DecorationImage getBackground(String description) {
+    switch (description) {
+      case "Clouds":
+        return DecorationImage(
+          fit: BoxFit.cover,
+          image: Image.asset(
+            "images/HomeBackground/background_cloud.jpg",
+          ).image,
+        );
+      case "Clear":
+        return DecorationImage(
+          fit: BoxFit.cover,
+          image: Image.asset(
+            "images/HomeBackground/background_clear.jpg",
+          ).image,
+        );
+      default:
+        return DecorationImage(
+            fit: BoxFit.cover,
+            image: Image.asset(
+              "images/loginbackground.jpg",
+            ).image);
+    }
+  }
+
   double msTokmh = 3.6;
 
   @override
@@ -31,16 +56,11 @@ class _DetailsPageState extends State<DetailsPage> {
         builder: (context, state) {
           if (state is WeatherBlocSuccess) {
             return Container(
+              width: MediaQuery.sizeOf(context).width,
+              height: MediaQuery.sizeOf(context).height,
               decoration: BoxDecoration(
-                borderRadius: const BorderRadiusDirectional.only(
-                  topEnd: Radius.circular(30),
-                  topStart: Radius.circular(30),
-                ),
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: backgroundGradientColors,
-                ),
+                color: const Color.fromARGB(78, 20, 24, 27),
+                image: getBackground(state.weather.weatherMain!),
               ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,

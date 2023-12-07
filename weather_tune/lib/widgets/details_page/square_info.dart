@@ -32,7 +32,7 @@ class _SquareInfoDisplayState extends State<SquareInfoDisplay> {
   Widget build(BuildContext context) {
     return Container(
       width: 200,
-      height: 130,
+      height: 150,
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: gradientSquareColors,
