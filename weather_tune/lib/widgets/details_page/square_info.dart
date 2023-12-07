@@ -32,7 +32,7 @@ class _SquareInfoDisplayState extends State<SquareInfoDisplay> {
   Widget build(BuildContext context) {
     return Container(
       width: 200,
-      height: 150,
+      height: 140,
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: gradientSquareColors,
@@ -84,7 +84,7 @@ class _SquareInfoDisplayState extends State<SquareInfoDisplay> {
               fontWeight: FontWeight.w500,
             ),
           ),
-          const SizedBox(height: 10),
+          const SizedBox(height: 5),
           Text(
             widget.additionalInfoTitle,
             style: const TextStyle(

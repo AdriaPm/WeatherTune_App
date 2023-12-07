@@ -32,15 +32,13 @@ class _TempInfoState extends State<TempInfo> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: 150,
-        width: 150,
-        decoration:
-            BoxDecoration(color: const Color.fromARGB(255, 243, 35, 35)),
+        decoration: BoxDecoration(
+            color: Colors.transparent, borderRadius: BorderRadius.circular(60)),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image(
                   image: AssetImage(
@@ -63,6 +61,7 @@ class _TempInfoState extends State<TempInfo> {
                     Text(
                       widget.captionrise,
                       softWrap: true,
+                      style: const TextStyle(fontSize: 12, color: Colors.white),
                     )
                   ],
                 )
@@ -90,6 +89,7 @@ class _TempInfoState extends State<TempInfo> {
                     Text(
                       widget.captionset,
                       softWrap: true,
+                      style: const TextStyle(fontSize: 12, color: Colors.white),
                     )
                   ],
                 )

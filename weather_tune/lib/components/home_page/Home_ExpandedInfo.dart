@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:weather_tune/components/hourly_weekly.dart';
+import 'package:weather_tune/widgets/home_page/TabMenu/TabView_PageViewer.dart';
 import 'package:weather_tune/pages/details_page.dart';
 
 class BottomSheetContainer extends StatefulWidget {
@@ -22,9 +22,9 @@ class _BottomSheetContainerState extends State<BottomSheetContainer> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onVerticalDragUpdate: (details) {
-        if (!_isExpanded && details.primaryDelta! < -6) {
+        if (!_isExpanded && details.primaryDelta! < -2) {
           _toggleBottomSheet();
-        } else if (_isExpanded && details.primaryDelta! > 6) {
+        } else if (_isExpanded && details.primaryDelta! > 2) {
           _toggleBottomSheet();
         }
       },
@@ -66,39 +66,5 @@ class QuarterScreenContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ForecastTabs();
-  }
-}
-
-class MyCustomClipper extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    final path = Path();
-    path.lineTo(0, size.height); // Start at the bottom-left corner
-
-    // Define the rounded top-left corner
-    path.lineTo(0, 40); // Move to the top-left corner
-    path.arcToPoint(
-      const Offset(40, 0),
-      radius: const Radius.circular(40),
-      clockwise: false,
-    );
-
-    // Define the rounded top-right corner
-    path.lineTo(size.width - 40, 0); // Move to the top-right corner
-    path.arcToPoint(
-      Offset(size.width, 40),
-      radius: const Radius.circular(40),
-      clockwise: false,
-    );
-
-    path.lineTo(size.width, size.height); // Line to the bottom-right corner
-    path.close(); // Close the path
-
-    return path;
-  }
-
-  @override
-  bool shouldReclip(covariant CustomClipper<Path> oldClipper) {
-    return false;
   }
 }

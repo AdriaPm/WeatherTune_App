@@ -32,7 +32,7 @@ class _AirConcentrationState extends State<AirConcentration> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width - 50,
+      width: MediaQuery.of(context).size.width - 120,
       height: 150,
       decoration: BoxDecoration(
         gradient: LinearGradient(

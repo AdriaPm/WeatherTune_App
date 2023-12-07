@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:weather_tune/components/dropdown_button.dart';
+import 'package:weather_tune/components/login_page/dropdown_button.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});

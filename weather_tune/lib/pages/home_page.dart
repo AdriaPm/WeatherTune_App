@@ -1,10 +1,10 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:weather_tune/bloc/weather_bloc_bloc.dart';
 import 'package:weather_tune/components/bottombar.dart';
-import 'package:weather_tune/components/slider_bottom_page.dart';
+import 'package:weather_tune/components/home_page/Home_ExpandedInfo.dart';
+import 'package:weather_tune/data/getWeather_getBackground.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -14,52 +14,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  Widget getWeatherIcon(int code) {
-    switch (code) {
-      case >= 200 && < 300:
-        return Image.asset('images/weather_icons/1.png');
-      case >= 300 && < 400:
-        return Image.asset('images/weather_icons/2.png');
-      case >= 500 && < 600:
-        return Image.asset('images/weather_icons/3.png');
-      case >= 600 && < 700:
-        return Image.asset('images/weather_icons/4.png');
-      case >= 700 && < 800:
-        return Image.asset('images/weather_icons/5.png');
-      case == 800:
-        return Image.asset('images/weather_icons/6.png');
-      case > 800 && <= 804:
-        return Image.asset('images/weather_icons/7.png');
-      default:
-        return Image.asset('images/weather_icons/7.png');
-    }
-  }
-
-  DecorationImage getBackground(String description) {
-    switch (description) {
-      case "Clouds":
-        return DecorationImage(
-          fit: BoxFit.cover,
-          image: Image.asset(
-            "images/HomeBackground/background_cloud.jpg",
-          ).image,
-        );
-      case "Clear":
-        return DecorationImage(
-          fit: BoxFit.cover,
-          image: Image.asset(
-            "images/HomeBackground/background_clear.jpg",
-          ).image,
-        );
-      default:
-        return DecorationImage(
-            fit: BoxFit.cover,
-            image: Image.asset(
-              "images/loginbackground.jpg",
-            ).image);
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -149,7 +103,7 @@ class _HomePageState extends State<HomePage> {
                             ]),
                       ),
                     ),
-                    Align(
+                    const Align(
                       alignment: Alignment.bottomCenter,
                       child: BottomSheetContainer(),
                     ),

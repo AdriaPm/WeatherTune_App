@@ -1,7 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:weather_tune/components/route_info.dart';
-import 'package:weather_tune/firebase_options.dart';
+import 'package:weather_tune/components/api_bloc_routing/route_info.dart';
+import 'package:weather_tune/firebase/firebase_options.dart';
 import 'package:weather_tune/pages/splash_page.dart';
 
 void main() async {
