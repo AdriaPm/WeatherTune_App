@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:weather_tune/bloc/weather_bloc_bloc.dart';
 import 'package:weather_tune/components/bottombar.dart';
-import 'package:weather_tune/components/home_page/Home_ExpandedInfo.dart';
-import 'package:weather_tune/data/getWeather_getBackground.dart';
+import 'package:weather_tune/components/home_page/home_expandedinfo.dart';
+import 'package:weather_tune/data/getweather_getbackground.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

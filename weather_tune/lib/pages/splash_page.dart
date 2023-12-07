@@ -74,7 +74,7 @@ class _SplashPageState extends State<SplashPage> {
                 scale: 1,
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.1,
+                height: MediaQuery.of(context).size.height * 0.2,
               ),
               CircularProgressIndicator(
                 color: Colors.purple.shade900,

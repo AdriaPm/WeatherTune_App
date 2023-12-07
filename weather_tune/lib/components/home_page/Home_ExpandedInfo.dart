@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:weather_tune/widgets/home_page/TabMenu/TabView_PageViewer.dart';
+import 'package:weather_tune/widgets/home_page/TabMenu/tabview_pageviewer.dart';
 import 'package:weather_tune/pages/details_page.dart';
 
 class BottomSheetContainer extends StatefulWidget {
