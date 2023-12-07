@@ -134,59 +134,67 @@ class WeeklyForecast extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<WeatherBlocBloc, WeatherBlocState>(
-        builder: (context, state) {
-      if (state is WeatherBlocSuccess) {
-        return Center(
-          child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            itemCount: state
-                .weatherlist.length, // Change this number to the desired count
-            itemBuilder: (BuildContext context, int index) {
-              return Container(
-                width: 65,
-                margin: const EdgeInsets.all(8),
-                decoration: BoxDecoration(
-                    color: const Color.fromARGB(185, 61, 45, 143),
-                    borderRadius: BorderRadius.circular(40)),
-                // You can set different colors or styles here
-                child: Center(
-                    child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      width: 55,
-                      child: Text(
-                        DateFormat('EEEE')
-                            .add_jm()
-                            .format(state.weatherlist[index].date!),
+      builder: (context, state) {
+        if (state is WeatherBlocSuccess) {
+          return Center(
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: state.weatherlist
+                  .length, // Change this number to the desired count
+              itemBuilder: (BuildContext context, int index) {
+                bool isFirstElement = index == 0;
+                return Container(
+                  width: 65,
+                  margin: const EdgeInsets.all(8),
+                  decoration: BoxDecoration(
+                    color: isFirstElement
+                        ? const Color.fromARGB(200, 149, 117, 205)
+                        : const Color.fromARGB(200, 49, 27, 146),
+                    borderRadius: BorderRadius.circular(40),
+                    border: Border.all(
+                      color: Colors.pink.shade50,
+                      width: 0.5,
+                    ),
+                  ),
+                  child: Center(
+                      child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                        width: 55,
+                        child: Text(
+                          DateFormat('EEEE,\nd/M')
+                              .add_jm()
+                              .format(state.weatherlist[index].date!),
+                          style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 10,
+                              fontWeight: FontWeight.w300),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 40,
+                        child: getWeatherIcon(
+                            state.weatherlist[index].weatherConditionCode!),
+                      ),
+                      Text(
+                        "${state.weatherlist[index].temperature!.celsius!.round()}ºC",
                         style: const TextStyle(
                             color: Colors.white,
-                            fontSize: 10,
-                            fontWeight: FontWeight.w300),
+                            fontSize: 12,
+                            fontWeight: FontWeight.w600),
                       ),
-                    ),
-                    SizedBox(
-                      height: 40,
-                      child: getWeatherIcon(
-                          state.weatherlist[index].weatherConditionCode!),
-                    ),
-                    Text(
-                      "${state.weather.temperature!.celsius!.round()}ºC",
-                      style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 12,
-                          fontWeight: FontWeight.w600),
-                    ),
-                  ],
-                )),
-              );
-            },
-          ),
-        );
-      } else {
-        return Container();
-      }
-    });
+                    ],
+                  )),
+                );
+              },
+            ),
+          );
+        } else {
+          return Container();
+        }
+      },
+    );
   }
 }
