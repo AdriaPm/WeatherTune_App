@@ -20,6 +20,9 @@ WeatherTune is the collaborative effort of four passionate students from CITM-UP
 - **[Joel Chaves](https://github.com/joeycm)**
 - **[Xavi Alcañiz](https://github.com/StarvinXarvin)**
 
+## Figma UI/UX Design Prototype
+[Figma Prototype](https://www.figma.com/proto/BKuhK7U4KPhKFwizA75vph/WeatherTune-App-Design-Sketch?type=design&node-id=2-278&t=gckvvae4DOPAcAqj-1&scaling=scale-down&starting-point-node-id=2%3A124&mode=design) Check out our UI/UX Basis!
+
 ## Feedback and Issues
 
 If you encounter any issues or have suggestions for improvement, please [create an issue](https://github.com/RylanJGraham/WeatherTune/issues). We appreciate your feedback!
