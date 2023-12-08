@@ -58,7 +58,7 @@ class FullScreenContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(body: DetailsPage());
+    return const DetailsPage();
   }
 }
 
