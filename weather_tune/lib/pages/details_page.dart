@@ -85,13 +85,14 @@ class _DetailsPageState extends State<DetailsPage> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
+                // Display weather forecast widget
                 Container(
                   width: MediaQuery.of(context).size.width - 75,
                   height: MediaQuery.of(context).size.height - 800,
                   decoration: BoxDecoration(
                     color: const Color.fromARGB(112, 0, 0, 0),
                     borderRadius: const BorderRadius.all(
-                      Radius.circular(30),
+                      Radius.circular(15),
                     ),
                     border: Border.all(
                       color: const Color.fromARGB(255, 247, 196, 213),
@@ -103,7 +104,7 @@ class _DetailsPageState extends State<DetailsPage> {
                 const SizedBox(height: 20),
                 // Widget to display detailed air concentration
                 AirConcentration(
-                  cloudiness: state.weather.cloudiness!.toInt(),
+                  cloudiness: state.weather.cloudiness!.round().toInt(),
                   humidity: state.weather.humidity!.toInt(),
                   pressure: state.weather.pressure!.toInt(),
                 ),
