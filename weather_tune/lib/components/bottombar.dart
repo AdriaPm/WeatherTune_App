@@ -1,3 +1,4 @@
+// ignore_for_file: non_constant_identifier_names
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -76,8 +77,8 @@ class _BottomBarWidgetState extends State<BottomBarWidget> {
             icon: Icon(
               Icons.home,
               color: widget.home_active
-                  ? Color.fromARGB(255, 106, 0, 244)
-                  : Color.fromARGB(255, 104, 104, 104),
+                  ? const Color.fromARGB(255, 106, 0, 244)
+                  : const Color.fromARGB(255, 104, 104, 104),
             ),
             iconSize: 40,
             onPressed: () {

@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api, file_names
+
 import 'package:flutter/material.dart';
 import 'package:weather_tune/widgets/home_page/TabMenu/tabview_pageviewer.dart';
 import 'package:weather_tune/pages/details_page.dart';
@@ -65,6 +67,6 @@ class QuarterScreenContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ForecastTabs();
+    return const ForecastTabs();
   }
 }

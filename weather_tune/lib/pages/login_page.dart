@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:weather_tune/components/login_page/button.dart';
 import 'package:weather_tune/components/login_page/text_field.dart';
 import 'package:firebase_auth/firebase_auth.dart';

@@ -1,5 +1,6 @@
+// ignore_for_file: avoid_print
+
 import 'dart:async';
-import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -7,6 +8,8 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:intl/intl.dart';
 
 class RadarPage extends StatefulWidget {
+  const RadarPage({super.key});
+
   @override
   State<RadarPage> createState() => _RadarPageState();
 }
@@ -23,9 +26,9 @@ class _RadarPageState extends State<RadarPage> {
 
   @override
   Widget build(BuildContext context) {
-    Set<TileOverlay> _tileOverLays = {};
+    Set<TileOverlay> tileOverLays = {};
 
-    _initTiles(DateTime dateTime) async {
+    initTiles(DateTime dateTime) async {
       final String overlayId = dateTime.millisecondsSinceEpoch.toString();
 
       final tileOverLay = TileOverlay(
@@ -37,15 +40,15 @@ class _RadarPageState extends State<RadarPage> {
             dateTime: dateTime,
           ));
       setState(() {
-        _tileOverLays = {tileOverLay};
+        tileOverLays = {tileOverLay};
       });
     }
 
-    _changeDate(duration) {
+    changeDate(duration) {
       setState(() {
         _forecastDate = _forecastDate.add(duration);
       });
-      _initTiles(_forecastDate);
+      initTiles(_forecastDate);
     }
 
     return Scaffold(
@@ -59,9 +62,9 @@ class _RadarPageState extends State<RadarPage> {
               setState(() {
                 _controller = controller;
               });
-              _initTiles(_forecastDate);
+              initTiles(_forecastDate);
             },
-            tileOverlays: _tileOverLays,
+            tileOverlays: tileOverLays,
           ),
           Positioned(
             bottom: 30,
@@ -75,14 +78,14 @@ class _RadarPageState extends State<RadarPage> {
                     left: 30,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        shape: CircleBorder(),
-                        padding: EdgeInsets.all(20),
+                        shape: const CircleBorder(),
+                        padding: const EdgeInsets.all(20),
                       ),
                       onPressed: _controller == null
                           ? null
                           : () {
                               setState(() {
-                                _changeDate(const Duration(hours: -3));
+                                changeDate(const Duration(hours: -3));
                               });
                             },
                       child: const Icon(
@@ -107,14 +110,14 @@ class _RadarPageState extends State<RadarPage> {
                     right: 30,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        shape: CircleBorder(),
-                        padding: EdgeInsets.all(20),
+                        shape: const CircleBorder(),
+                        padding: const EdgeInsets.all(20),
                       ),
                       onPressed: _controller == null
                           ? null
                           : () {
                               setState(() {
-                                _changeDate(const Duration(hours: 3));
+                                changeDate(const Duration(hours: 3));
                               });
                             },
                       child: const Icon(
