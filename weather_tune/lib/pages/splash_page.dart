@@ -74,13 +74,24 @@ class _SplashPageState extends State<SplashPage> {
                 scale: 1,
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.2,
+                height: MediaQuery.of(context).size.height * 0.15,
               ),
               CircularProgressIndicator(
                 color: Colors.purple.shade900,
                 strokeAlign: 3,
                 strokeCap: StrokeCap.round,
                 strokeWidth: 8,
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.1,
+              ),
+              SizedBox(
+                width: MediaQuery.of(context).size.width - 300,
+                child: LinearProgressIndicator(
+                  value: sliderValue,
+                  color: Colors.pink.shade600,
+                  backgroundColor: Colors.purple.shade900,
+                ),
               ),
             ],
           ),
