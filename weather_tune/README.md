@@ -23,6 +23,12 @@ WeatherTune is the collaborative effort of four passionate students from CITM-UP
 ## Figma UI/UX Design Prototype
 [Figma Prototype](https://www.figma.com/file/BKuhK7U4KPhKFwizA75vph/WeatherTune-App-Design-Sketch?type=design&node-id=0%3A1&mode=design&t=Gq3LmjmpS7cM8ayr-1) Check out our UI/UX Basis!
 
+## How to Run the App
+
+1. Open the project directory with your favorite IDE (**Visual Studio Code** is highly recommended).
+2. Run "flutter pub get" in the terminal to install the project dependencies.
+3. Select the "Chrome" or Android Emulator device and run the project ("flutter run").
+
 ## Feedback and Issues
 
 If you encounter any issues or have suggestions for improvement, please [create an issue](https://github.com/RylanJGraham/WeatherTune/issues). We appreciate your feedback!
