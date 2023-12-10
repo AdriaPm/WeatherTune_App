@@ -33,14 +33,14 @@ class SettingsPage extends StatelessWidget {
                           style: TextStyle(color: Colors.white))),
                 ],
               ))),
-      SizedBox(height: margins),
+      const SizedBox(height: margins),
       DropDownButton(
           widgetWidth: MediaQuery.sizeOf(context).width,
           title: "Alerts",
           child: const Align(
               alignment: Alignment.centerLeft,
               child: Text("English", style: TextStyle(color: Colors.white)))),
-      SizedBox(height: margins),
+      const SizedBox(height: margins),
       DropDownButton(
           widgetWidth: MediaQuery.sizeOf(context).width,
           title: "Units",
@@ -64,21 +64,21 @@ class SettingsPage extends StatelessWidget {
                           style: TextStyle(color: Colors.white))),
                 ],
               ))),
-      SizedBox(height: margins),
+      const SizedBox(height: margins),
       DropDownButton(
           widgetWidth: MediaQuery.sizeOf(context).width,
           title: "Location Services",
           child: const Align(
               alignment: Alignment.centerLeft,
               child: Text("English", style: TextStyle(color: Colors.white)))),
-      SizedBox(height: margins),
+      const SizedBox(height: margins),
       DropDownButton(
           widgetWidth: MediaQuery.sizeOf(context).width,
           title: "Weather Services",
           child: const Align(
               alignment: Alignment.centerLeft,
               child: Text("English", style: TextStyle(color: Colors.white)))),
-      SizedBox(height: margins),
+      const SizedBox(height: margins),
     ])));
   }
 }
