@@ -109,6 +109,7 @@ class _BottomBarWidgetState extends State<BottomBarWidget> {
             iconSize: 40,
             icon: widget.search_active ? Radar2 : Radar1,
             onPressed: () {
+              Navigator.of(context).pushNamed("/radar");
               setState(() {
                 widget.search_active = !widget.search_active;
                 widget.home_active = false;
