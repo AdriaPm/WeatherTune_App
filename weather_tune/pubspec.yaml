@@ -80,6 +80,7 @@ flutter:
     - images/WeatherTuneLogo_BIG.png
     - images/WeatherTuneLogo_MEDIUM.png
     - images/WeatherTuneLogo_SMALL.png
+    - images/favorites_bkg.jpg
     - images/weather_icons/1.png
     - images/weather_icons/2.png
     - images/weather_icons/3.png
