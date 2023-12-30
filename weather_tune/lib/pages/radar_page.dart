@@ -1,9 +1,6 @@
 // ignore_for_file: avoid_print
 
-import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:intl/intl.dart';
 import 'forecast_tile_provider.dart';
@@ -12,12 +9,10 @@ class RadarPage extends StatefulWidget {
   const RadarPage({super.key});
 
   @override
-  State<RadarPage> createState() => RadarPageState();
+  State<RadarPage> createState() => _RadarPageState();
 }
 
-class RadarPageState extends State<RadarPage> {
-  GoogleMapController? _controller;
-
+class _RadarPageState extends State<RadarPage> {
   TileOverlay? _tileOverlay;
 
   DateTime _forecastDate = DateTime.now();
@@ -55,9 +50,7 @@ class RadarPageState extends State<RadarPage> {
             mapType: MapType.normal,
             initialCameraPosition: _initialPosition,
             onMapCreated: (GoogleMapController controller) {
-              setState(() {
-                _controller = controller;
-              });
+              setState(() {});
               _initTiles(_forecastDate);
             },
             tileOverlays:

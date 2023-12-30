@@ -4,6 +4,7 @@ import 'package:weather_tune/components/api_bloc_routing/route_info.dart';
 import 'package:weather_tune/firebase/firebase_options.dart';
 import 'package:weather_tune/pages/favorites_page.dart';
 import 'package:weather_tune/pages/radar_page.dart';
+import 'package:weather_tune/pages/settings_page.dart';
 import 'package:weather_tune/pages/splash_page.dart';
 
 void main() async {
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
         "/details": (context) => const DetailsAPI(),
         "/radar": (context) => const RadarPage(),
         "/favorites": (context) => const FavoritePage(),
+        "/settings": (context) => const SettingsPage()
       },
       home: const SplashPage(screenLoadingTime: 4),
     );
