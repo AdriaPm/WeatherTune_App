@@ -58,7 +58,7 @@ class _RadarPageState extends State<RadarPage> {
           ),
           Positioned(
             bottom: 30,
-            child: Container(
+            child: SizedBox(
               height: 70,
               width: MediaQuery.of(context).size.width,
               child: Stack(

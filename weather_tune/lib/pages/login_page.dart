@@ -78,7 +78,7 @@ class _LoginPageState extends State<LoginPage> {
                       //color: const Color.fromARGB(41, 255, 255, 255),
                       color: Colors.transparent,
                       borderRadius: BorderRadius.circular(40)),
-                  height: MediaQuery.of(context).size.height - 500,
+                  height: MediaQuery.of(context).size.height - 200,
                   width: MediaQuery.of(context).size.width - 150,
                   child: Padding(
                     padding: const EdgeInsets.all(16.0),

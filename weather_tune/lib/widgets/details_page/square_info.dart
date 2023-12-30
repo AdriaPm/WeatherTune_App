@@ -31,8 +31,8 @@ class _SquareInfoDisplayState extends State<SquareInfoDisplay> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 200,
-      height: 140,
+      width: 175,
+      height: 120,
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: gradientSquareColors,
@@ -54,9 +54,9 @@ class _SquareInfoDisplayState extends State<SquareInfoDisplay> {
         ],
       ),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          const SizedBox(height: 10),
+          const SizedBox(height: 5),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -84,7 +84,6 @@ class _SquareInfoDisplayState extends State<SquareInfoDisplay> {
               fontWeight: FontWeight.w500,
             ),
           ),
-          const SizedBox(height: 5),
           Text(
             widget.additionalInfoTitle,
             style: const TextStyle(
@@ -101,7 +100,6 @@ class _SquareInfoDisplayState extends State<SquareInfoDisplay> {
               fontWeight: FontWeight.w500,
             ),
           ),
-          const SizedBox(height: 10),
         ],
       ),
     );

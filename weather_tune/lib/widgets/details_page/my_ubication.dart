@@ -51,7 +51,6 @@ class MyUbication extends StatelessWidget {
             ),
           ],
         ),
-        const SizedBox(height: 10),
         Text(
           'Feels like: $feelsLikeTempºC',
           style: TextStyle(
