@@ -1,17 +1,59 @@
 import 'package:flutter/material.dart';
 import 'package:weather_tune/data/getWeather_getBackground.dart';
 
-class FavoritePage extends StatefulWidget {
-  const FavoritePage({super.key});
+class FavoritePage extends StatelessWidget {
+  final List<LocationData> locations = [
+    LocationData('New York', 'sunny', '25°C'),
+    LocationData('London', 'cloudy', '13°C'),
+    LocationData('Tokyo', 'rainy', '20°C'),
+    LocationData('Paris', 'snowy', '-2°C'),
+    LocationData('Sydney', 'foggy', '22°C'),
+    LocationData('Berlin', 'stormy', '15°C'),
+    // Add more locations as needed
+  ];
 
-  @override
-  State<FavoritePage> createState() => _FavoritePageState();
-}
+  FavoritePage({super.key});
 
-class _FavoritePageState extends State<FavoritePage> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Favorites'),
+      ),
+      body: Stack(
+        children: [
+          // Background with a gradient or an image
+          // You can replace this with your desired background
+          // Background image covering the entire app
+          Container(
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(
+                    'images/favorites_bkg.jpg'), // Replace with your image asset
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+
+          // List of location boxes
+          Positioned.fill(
+            child: ListView.builder(
+              itemCount: locations.length,
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                  child: LocationBox(
+                    location: locations[index].location,
+                    weatherCondition: locations[index].weatherCondition,
+                    temperature: locations[index].temperature,
+                  ),
+                );
+              },
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
 

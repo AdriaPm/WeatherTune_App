@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
       routes: {
         "/details": (context) => const DetailsAPI(),
         "/radar": (context) => const RadarPage(),
-        "/favorites": (context) => const FavoritePage(),
+        "/favorites": (context) => FavoritePage(),
         "/settings": (context) => const SettingsPage()
       },
       home: const SplashPage(screenLoadingTime: 4),
