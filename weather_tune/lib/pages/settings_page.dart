@@ -11,41 +11,10 @@ class SettingsPage extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
-            DropDownButton(
-                widgetWidth: MediaQuery.sizeOf(context).width,
-                title: "Language",
-                child: const Align(
-                    alignment: Alignment.centerLeft,
-                    child: Column(
-                      children: [
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: Text(
-                            "English",
-                            style: TextStyle(color: Colors.white),
-                          ),
-                        ),
-                        SizedBox(height: 5),
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: Text(
-                            "Spanish",
-                            style: TextStyle(color: Colors.white),
-                          ),
-                        ),
-                        SizedBox(height: 5),
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: Text(
-                            "French",
-                            style: TextStyle(color: Colors.white),
-                          ),
-                        ),
-                      ],
-                    ))),
+            LanguageSelector(english_active: true, spanish_active: false),
             SizedBox(height: margins),
             DropDownButton(
-              widgetWidth: MediaQuery.sizeOf(context).width,
+              widgetWidth: MediaQuery.sizeOf(context).width - 10,
               title: "Alerts",
               child: const Align(
                 alignment: Alignment.centerLeft,
@@ -56,41 +25,10 @@ class SettingsPage extends StatelessWidget {
               ),
             ),
             SizedBox(height: margins),
-            DropDownButton(
-                widgetWidth: MediaQuery.sizeOf(context).width,
-                title: "Units",
-                child: const Align(
-                    alignment: Alignment.centerLeft,
-                    child: Column(
-                      children: [
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: Text(
-                            "Celsius (Cº)",
-                            style: TextStyle(color: Colors.white),
-                          ),
-                        ),
-                        SizedBox(height: 5),
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: Text(
-                            "Fahrenheit (Fº)",
-                            style: TextStyle(color: Colors.white),
-                          ),
-                        ),
-                        SizedBox(height: 5),
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: Text(
-                            "Kelvin (K)",
-                            style: TextStyle(color: Colors.white),
-                          ),
-                        ),
-                      ],
-                    ))),
+            UnitSelector(c_active: true, f_active: false, k_active: false),
             SizedBox(height: margins),
             DropDownButton(
-              widgetWidth: MediaQuery.sizeOf(context).width,
+              widgetWidth: MediaQuery.sizeOf(context).width - 10,
               title: "Location Services",
               child: const Align(
                 alignment: Alignment.centerLeft,
@@ -102,7 +40,7 @@ class SettingsPage extends StatelessWidget {
             ),
             SizedBox(height: margins),
             DropDownButton(
-              widgetWidth: MediaQuery.sizeOf(context).width,
+              widgetWidth: MediaQuery.sizeOf(context).width - 10,
               title: "Weather Services",
               child: const Align(
                 alignment: Alignment.centerLeft,
@@ -117,5 +55,155 @@ class SettingsPage extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class LanguageSelector extends StatefulWidget {
+  LanguageSelector(
+      {super.key, required this.english_active, required this.spanish_active});
+  bool english_active;
+  bool spanish_active;
+
+  @override
+  State<LanguageSelector> createState() => _LanguageSelectorState();
+}
+
+class _LanguageSelectorState extends State<LanguageSelector> {
+  @override
+  Widget build(BuildContext context) {
+    return DropDownButton(
+        widgetWidth: MediaQuery.sizeOf(context).width - 10,
+        title: "Language",
+        child: Align(
+            alignment: Alignment.centerLeft,
+            child: Column(
+              children: [
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        widget.spanish_active = false;
+                        widget.english_active = true;
+                      });
+                    },
+                    child: Text(
+                      "English",
+                      style: TextStyle(
+                          color: widget.english_active
+                              ? Colors.white
+                              : const Color.fromARGB(255, 167, 143, 186)),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 5),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        widget.spanish_active = true;
+                        widget.english_active = false;
+                      });
+                    },
+                    child: Text(
+                      "Spanish",
+                      style: TextStyle(
+                          color: widget.spanish_active
+                              ? Colors.white
+                              : const Color.fromARGB(255, 167, 143, 186)),
+                    ),
+                  ),
+                ),
+              ],
+            )));
+  }
+}
+
+class UnitSelector extends StatefulWidget {
+  UnitSelector(
+      {super.key,
+      required this.f_active,
+      required this.c_active,
+      required this.k_active});
+  bool f_active;
+  bool c_active;
+  bool k_active;
+
+  @override
+  State<UnitSelector> createState() => _UnitSelectorState();
+}
+
+class _UnitSelectorState extends State<UnitSelector> {
+  @override
+  Widget build(BuildContext context) {
+    return DropDownButton(
+        widgetWidth: MediaQuery.sizeOf(context).width - 10,
+        title: "Units",
+        child: Align(
+            alignment: Alignment.centerLeft,
+            child: Column(
+              children: [
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        widget.f_active = true;
+                        widget.c_active = false;
+                        widget.k_active = false;
+                      });
+                    },
+                    child: Text(
+                      "Fahrenheit (Fº)",
+                      style: TextStyle(
+                          color: widget.f_active
+                              ? Colors.white
+                              : const Color.fromARGB(255, 167, 143, 186)),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 5),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        widget.f_active = false;
+                        widget.c_active = true;
+                        widget.k_active = false;
+                      });
+                    },
+                    child: Text(
+                      "Celsius (Cº)",
+                      style: TextStyle(
+                          color: widget.c_active
+                              ? Colors.white
+                              : const Color.fromARGB(255, 167, 143, 186)),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 5),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        widget.f_active = false;
+                        widget.c_active = false;
+                        widget.k_active = true;
+                      });
+                    },
+                    child: Text(
+                      "Kelvin (K)",
+                      style: TextStyle(
+                          color: widget.k_active
+                              ? Colors.white
+                              : const Color.fromARGB(255, 167, 143, 186)),
+                    ),
+                  ),
+                ),
+              ],
+            )));
   }
 }

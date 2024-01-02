@@ -95,6 +95,7 @@ class _BottomBarWidgetState extends State<BottomBarWidget> {
             iconSize: 40,
             icon: widget.favorites_active ? List2 : List1,
             onPressed: () {
+              Navigator.of(context).pushNamed("/favorites");
               setState(() {
                 widget.favorites_active = !widget.favorites_active;
                 widget.home_active = false;
@@ -124,6 +125,7 @@ class _BottomBarWidgetState extends State<BottomBarWidget> {
             iconSize: 40,
             icon: widget.settings_active ? Settings2 : Settings1,
             onPressed: () {
+              Navigator.of(context).pushNamed("/settings");
               setState(() {
                 widget.settings_active = !widget.settings_active;
                 widget.search_active = false;
