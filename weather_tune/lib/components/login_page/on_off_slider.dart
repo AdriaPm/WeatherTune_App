@@ -43,3 +43,36 @@ class _OnOffSliderState extends State<OnOffSlider> {
     );
   }
 }
+
+class SliderButton extends StatelessWidget {
+  final String title;
+  final double widgetWidth;
+  const SliderButton(
+      {super.key, required this.widgetWidth, required this.title});
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(10),
+      width: widgetWidth,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        gradient: const LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [Colors.deepPurple, Color.fromARGB(255, 199, 44, 226)],
+        ),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(title,
+              style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold)),
+          const OnOffSlider(size: 25),
+        ],
+      ),
+    );
+  }
+}

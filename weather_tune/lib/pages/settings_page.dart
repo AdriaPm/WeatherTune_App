@@ -23,17 +23,18 @@ class SettingsPage extends StatelessWidget {
         child: Center(
           child: Column(
             children: [
-              SizedBox(height: margins * 2),
-              LanguageSelector(english_active: true, spanish_active: false),
-              SizedBox(height: margins),
-              DropDownButton(
+              SliderButton(
                 widgetWidth: MediaQuery.sizeOf(context).width - 40,
                 title: "Alerts",
-                child: const Align(
-                  alignment: Alignment.centerLeft,
-                  child: OnOffSlider(size: 30),
-                ),
               ),
+              SizedBox(height: margins),
+              SliderButton(
+                widgetWidth: MediaQuery.sizeOf(context).width - 40,
+                title: "Dark Mode",
+              ),
+              SizedBox(height: margins),
+              SizedBox(height: margins * 2),
+              LanguageSelector(english_active: true, spanish_active: false),
               SizedBox(height: margins),
               UnitSelector(c_active: true, f_active: false, k_active: false),
               SizedBox(height: margins),
