@@ -1,57 +1,68 @@
 import 'package:flutter/material.dart';
 import 'package:weather_tune/components/login_page/dropdown_button.dart';
+import 'package:weather_tune/components/login_page/on_off_slider.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
-  final double margins = 5;
+  final double margins = 10;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          children: [
-            LanguageSelector(english_active: true, spanish_active: false),
-            SizedBox(height: margins),
-            DropDownButton(
-              widgetWidth: MediaQuery.sizeOf(context).width - 10,
-              title: "Alerts",
-              child: const Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "English",
-                  style: TextStyle(color: Colors.white),
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [
+              Color.fromARGB(255, 66, 9, 56),
+              Color.fromARGB(255, 24, 5, 53)
+            ],
+          ),
+        ),
+        child: Center(
+          child: Column(
+            children: [
+              SizedBox(height: margins * 2),
+              LanguageSelector(english_active: true, spanish_active: false),
+              SizedBox(height: margins),
+              DropDownButton(
+                widgetWidth: MediaQuery.sizeOf(context).width - 40,
+                title: "Alerts",
+                child: const Align(
+                  alignment: Alignment.centerLeft,
+                  child: OnOffSlider(size: 30),
                 ),
               ),
-            ),
-            SizedBox(height: margins),
-            UnitSelector(c_active: true, f_active: false, k_active: false),
-            SizedBox(height: margins),
-            DropDownButton(
-              widgetWidth: MediaQuery.sizeOf(context).width - 10,
-              title: "Location Services",
-              child: const Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "English",
-                  style: TextStyle(color: Colors.white),
+              SizedBox(height: margins),
+              UnitSelector(c_active: true, f_active: false, k_active: false),
+              SizedBox(height: margins),
+              DropDownButton(
+                widgetWidth: MediaQuery.sizeOf(context).width - 40,
+                title: "Location Services",
+                child: const Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "English",
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ),
               ),
-            ),
-            SizedBox(height: margins),
-            DropDownButton(
-              widgetWidth: MediaQuery.sizeOf(context).width - 10,
-              title: "Weather Services",
-              child: const Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "English",
-                  style: TextStyle(color: Colors.white),
+              SizedBox(height: margins),
+              DropDownButton(
+                widgetWidth: MediaQuery.sizeOf(context).width - 40,
+                title: "Weather Services",
+                child: const Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "English",
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ),
               ),
-            ),
-            SizedBox(height: margins),
-          ],
+              SizedBox(height: margins),
+            ],
+          ),
         ),
       ),
     );
@@ -72,7 +83,7 @@ class _LanguageSelectorState extends State<LanguageSelector> {
   @override
   Widget build(BuildContext context) {
     return DropDownButton(
-        widgetWidth: MediaQuery.sizeOf(context).width - 10,
+        widgetWidth: MediaQuery.sizeOf(context).width - 40,
         title: "Language",
         child: Align(
             alignment: Alignment.centerLeft,
@@ -138,7 +149,7 @@ class _UnitSelectorState extends State<UnitSelector> {
   @override
   Widget build(BuildContext context) {
     return DropDownButton(
-        widgetWidth: MediaQuery.sizeOf(context).width - 10,
+        widgetWidth: MediaQuery.sizeOf(context).width - 40,
         title: "Units",
         child: Align(
             alignment: Alignment.centerLeft,
