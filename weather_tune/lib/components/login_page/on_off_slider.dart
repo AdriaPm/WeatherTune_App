@@ -24,7 +24,7 @@ class _OnOffSliderState extends State<OnOffSlider> {
           height: widget.size,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(widget.size),
-            color: const Color.fromARGB(255, 194, 156, 201).withOpacity(0.6),
+            color: const Color.fromARGB(255, 195, 135, 206).withOpacity(0.6),
           ),
           child: Padding(
             padding: const EdgeInsets.all(4.0),

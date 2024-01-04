@@ -22,6 +22,13 @@ class ProfilePage extends StatelessWidget {
         child: Center(
           child: Column(
             children: [
+              SizedBox(height: margins * 2),
+              const Text("Profile",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 50,
+                      fontWeight: FontWeight.bold)),
+              SizedBox(height: margins * 2),
               DropDownButton(
                 widgetWidth: MediaQuery.sizeOf(context).width - 40,
                 title: "Privacy Settings",

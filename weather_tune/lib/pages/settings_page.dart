@@ -25,6 +25,12 @@ class SettingsPage extends StatelessWidget {
           child: Column(
             children: [
               SizedBox(height: margins * 2),
+              const Text("Settings",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 50,
+                      fontWeight: FontWeight.bold)),
+              SizedBox(height: margins * 2),
               ProfileButton(
                 widgetWidth: MediaQuery.sizeOf(context).width - 40,
               ),
@@ -239,6 +245,7 @@ class _ProfileButtonState extends State<ProfileButton> {
     return GestureDetector(
       onTap: () {
         //Ir a la pagina de perfil
+        Navigator.of(context).pushNamed("/profile");
       },
       child: Container(
         padding: const EdgeInsets.all(10),
@@ -259,7 +266,7 @@ class _ProfileButtonState extends State<ProfileButton> {
                     color: Colors.white,
                     fontSize: 16,
                     fontWeight: FontWeight.bold)),
-            ProfilePicture(size: 20),
+            ProfilePicture(size: 60),
           ],
         ),
       ),

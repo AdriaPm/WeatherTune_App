@@ -6,6 +6,7 @@ import 'package:weather_tune/pages/favorites_page.dart';
 import 'package:weather_tune/pages/radar_page.dart';
 import 'package:weather_tune/pages/settings_page.dart';
 import 'package:weather_tune/pages/splash_page.dart';
+import 'package:weather_tune/pages/profile_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -28,7 +29,8 @@ class MyApp extends StatelessWidget {
         "/details": (context) => const DetailsAPI(),
         "/radar": (context) => const RadarPage(),
         "/favorites": (context) => FavoritePage(),
-        "/settings": (context) => const SettingsPage()
+        "/settings": (context) => const SettingsPage(),
+        "/profile": (context) => const ProfilePage(),
       },
       home: const SplashPage(screenLoadingTime: 4),
     );

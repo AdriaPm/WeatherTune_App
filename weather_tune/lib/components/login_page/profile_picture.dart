@@ -10,10 +10,12 @@ class ProfilePicture extends StatelessWidget {
     return Container(
         width: size,
         height: size,
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(size)),
-        child: Image(
-            image: AssetImage(imagePath ?? "assets/images/DarkModeDefault.png"),
-            fit: BoxFit.cover));
+        decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(imagePath ?? "images/DarkModeDefault.png"),
+              fit: BoxFit.cover,
+            ),
+            borderRadius: BorderRadius.circular(size)));
   }
 }
 
