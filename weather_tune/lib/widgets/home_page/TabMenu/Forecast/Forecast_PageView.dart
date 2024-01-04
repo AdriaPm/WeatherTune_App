@@ -40,13 +40,13 @@ class ForecastView extends StatelessWidget {
               itemBuilder: (BuildContext context, int index) {
                 bool isFirstElement = index == 0;
                 return Container(
-                  width: 65,
-                  margin: const EdgeInsets.all(8),
+                  width: 80,
+                  margin: const EdgeInsets.fromLTRB(8, 5, 8, 5),
                   decoration: BoxDecoration(
                     color: isFirstElement
                         ? const Color.fromARGB(200, 149, 117, 205)
                         : const Color.fromARGB(200, 49, 27, 146),
-                    borderRadius: BorderRadius.circular(40),
+                    borderRadius: BorderRadius.circular(30),
                     border: Border.all(
                       color: Colors.pink.shade50,
                       width: 0.5,
@@ -60,7 +60,7 @@ class ForecastView extends StatelessWidget {
                       SizedBox(
                         width: 55,
                         child: Text(
-                          DateFormat('EEEE,\nd/M')
+                          DateFormat('EE, d/M')
                               .add_jm()
                               .format(state.weatherlist[index].date!),
                           style: const TextStyle(
@@ -70,7 +70,7 @@ class ForecastView extends StatelessWidget {
                         ),
                       ),
                       SizedBox(
-                        height: 40,
+                        height: 20,
                         child: getWeatherIcon(
                             state.weatherlist[index].weatherConditionCode!),
                       ),

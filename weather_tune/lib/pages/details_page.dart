@@ -78,7 +78,7 @@ class _DetailsPageState extends State<DetailsPage> {
                 ),
                 const SizedBox(height: 20),
                 const Text(
-                  'Forecasts:',
+                  'Detailed forecast:',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 25,
@@ -101,7 +101,7 @@ class _DetailsPageState extends State<DetailsPage> {
                 //   ),
                 //   child: const ForecastView(),
                 // ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 10),
                 // Widget to display detailed air concentration
                 AirConcentration(
                   cloudiness: state.weather.cloudiness!.round().toInt(),
