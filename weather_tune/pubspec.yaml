@@ -76,6 +76,8 @@ flutter:
   assets:
     - images/background.jpeg
     - images/registerbackground.jpg
+    - images/DarkModeDefault.png
+    - images/LightModeDefault.png
     - images/WeatherTuneLogo_ORIGINAL.png
     - images/WeatherTuneLogo_BIG.png
     - images/WeatherTuneLogo_MEDIUM.png

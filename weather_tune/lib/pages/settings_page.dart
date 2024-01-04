@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:weather_tune/components/login_page/dropdown_button.dart';
 import 'package:weather_tune/components/login_page/on_off_slider.dart';
+import 'package:weather_tune/components/login_page/profile_picture.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
@@ -23,6 +24,11 @@ class SettingsPage extends StatelessWidget {
         child: Center(
           child: Column(
             children: [
+              SizedBox(height: margins * 2),
+              ProfileButton(
+                widgetWidth: MediaQuery.sizeOf(context).width - 40,
+              ),
+              SizedBox(height: margins),
               SliderButton(
                 widgetWidth: MediaQuery.sizeOf(context).width - 40,
                 title: "Alerts",
@@ -33,7 +39,6 @@ class SettingsPage extends StatelessWidget {
                 title: "Dark Mode",
               ),
               SizedBox(height: margins),
-              SizedBox(height: margins * 2),
               LanguageSelector(english_active: true, spanish_active: false),
               SizedBox(height: margins),
               UnitSelector(c_active: true, f_active: false, k_active: false),
@@ -217,5 +222,47 @@ class _UnitSelectorState extends State<UnitSelector> {
                 ),
               ],
             )));
+  }
+}
+
+class ProfileButton extends StatefulWidget {
+  final double widgetWidth;
+  const ProfileButton({super.key, required this.widgetWidth});
+
+  @override
+  State<ProfileButton> createState() => _ProfileButtonState();
+}
+
+class _ProfileButtonState extends State<ProfileButton> {
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        //Ir a la pagina de perfil
+      },
+      child: Container(
+        padding: const EdgeInsets.all(10),
+        width: widget.widgetWidth,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          gradient: const LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [Colors.deepPurple, Color.fromARGB(255, 199, 44, 226)],
+          ),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            const Text("Profile",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold)),
+            ProfilePicture(size: 20),
+          ],
+        ),
+      ),
+    );
   }
 }
