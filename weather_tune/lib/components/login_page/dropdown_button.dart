@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weather_tune/components/login_page/menu_container.dart';
 
 class DropDownButton extends StatefulWidget {
   final dynamic child;
@@ -25,17 +26,8 @@ class _DropDownButtonState extends State<DropDownButton> {
           selected = !selected;
         });
       },
-      child: Container(
-          padding: const EdgeInsets.all(10),
-          width: widget.widgetWidth,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            gradient: const LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [Colors.deepPurple, Color.fromARGB(255, 199, 44, 226)],
-            ),
-          ),
+      child: MenuContainer(
+          widgetWidth: widget.widgetWidth,
           child: Column(
             children: [
               Row(

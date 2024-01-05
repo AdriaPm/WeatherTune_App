@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:weather_tune/components/login_page/dropdown_button.dart';
 import 'package:weather_tune/components/login_page/on_off_slider.dart';
 import 'package:weather_tune/components/login_page/profile_picture.dart';
+import 'package:weather_tune/components/login_page/menu_container.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
@@ -244,20 +245,10 @@ class _ProfileButtonState extends State<ProfileButton> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        //Ir a la pagina de perfil
         Navigator.of(context).pushNamed("/profile");
       },
-      child: Container(
-        padding: const EdgeInsets.all(10),
-        width: widget.widgetWidth,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
-          gradient: const LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [Colors.deepPurple, Color.fromARGB(255, 199, 44, 226)],
-          ),
-        ),
+      child: MenuContainer(
+        widgetWidth: widget.widgetWidth,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [

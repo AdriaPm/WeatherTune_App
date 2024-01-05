@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:weather_tune/components/login_page/dropdown_button.dart';
+import 'package:weather_tune/components/login_page/profile_picture.dart';
+import 'package:weather_tune/components/login_page/menu_container.dart';
 
 class ProfilePage extends StatelessWidget {
-  const ProfilePage({super.key});
   final double margins = 10;
+  const ProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +31,19 @@ class ProfilePage extends StatelessWidget {
                       fontSize: 50,
                       fontWeight: FontWeight.bold)),
               SizedBox(height: margins * 2),
+              MenuContainer(
+                  widgetWidth: MediaQuery.sizeOf(context).width - 40,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox(height: margins),
+                      ChangeProfilePicture(picture: ProfilePicture(size: 80)),
+                      SizedBox(height: margins),
+                      Username(),
+                      SizedBox(height: margins),
+                    ],
+                  )),
+              SizedBox(height: margins),
               DropDownButton(
                 widgetWidth: MediaQuery.sizeOf(context).width - 40,
                 title: "Privacy Settings",
@@ -68,6 +83,29 @@ class ProfilePage extends StatelessWidget {
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class Username extends StatefulWidget {
+  Username({super.key});
+  String? username;
+
+  @override
+  State<Username> createState() => _UsernameState();
+}
+
+class _UsernameState extends State<Username> {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: GestureDetector(
+        onTap: () {
+          Navigator.of(context).pushNamed("/profile");
+        },
+        child: Text(widget.username ?? "Username",
+            style: const TextStyle(fontSize: 30, color: Colors.white)),
       ),
     );
   }
