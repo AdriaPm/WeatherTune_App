@@ -78,12 +78,12 @@ class _LoginPageState extends State<LoginPage> {
                       //color: const Color.fromARGB(41, 255, 255, 255),
                       color: Colors.transparent,
                       borderRadius: BorderRadius.circular(40)),
-                  height: MediaQuery.of(context).size.height - 200,
+                  height: MediaQuery.of(context).size.height - 400,
                   width: MediaQuery.of(context).size.width - 150,
                   child: Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         //welcome
                         const Text("Login",
@@ -91,11 +91,9 @@ class _LoginPageState extends State<LoginPage> {
                                 color: Color.fromARGB(255, 255, 145, 0),
                                 fontWeight: FontWeight.bold,
                                 fontSize: 40)),
-
                         const SizedBox(
-                          height: 25,
+                          height: 20,
                         ),
-
                         MyTextField(
                             controller: emailTextController,
                             hintText: 'Email',
