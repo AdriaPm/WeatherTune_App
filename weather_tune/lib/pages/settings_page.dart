@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:weather_tune/components/login_page/dropdown_button.dart';
 import 'package:weather_tune/components/login_page/on_off_slider.dart';
@@ -46,9 +48,9 @@ class SettingsPage extends StatelessWidget {
                 title: "Dark Mode",
               ),
               SizedBox(height: margins),
-              LanguageSelector(english_active: true, spanish_active: false),
+              LanguageSelector(englishActive: true, spanishActive: false),
               SizedBox(height: margins),
-              UnitSelector(c_active: true, f_active: false, k_active: false),
+              UnitSelector(cisActive: true, fisActive: false, kisActive: false),
               SizedBox(height: margins),
               DropDownButton(
                 widgetWidth: MediaQuery.sizeOf(context).width - 40,
@@ -84,9 +86,9 @@ class SettingsPage extends StatelessWidget {
 
 class LanguageSelector extends StatefulWidget {
   LanguageSelector(
-      {super.key, required this.english_active, required this.spanish_active});
-  bool english_active;
-  bool spanish_active;
+      {super.key, required this.englishActive, required this.spanishActive});
+  bool englishActive;
+  bool spanishActive;
 
   @override
   State<LanguageSelector> createState() => _LanguageSelectorState();
@@ -107,14 +109,14 @@ class _LanguageSelectorState extends State<LanguageSelector> {
                   child: GestureDetector(
                     onTap: () {
                       setState(() {
-                        widget.spanish_active = false;
-                        widget.english_active = true;
+                        widget.spanishActive = false;
+                        widget.englishActive = true;
                       });
                     },
                     child: Text(
                       "English",
                       style: TextStyle(
-                          color: widget.english_active
+                          color: widget.englishActive
                               ? Colors.white
                               : const Color.fromARGB(255, 167, 143, 186)),
                     ),
@@ -126,14 +128,14 @@ class _LanguageSelectorState extends State<LanguageSelector> {
                   child: GestureDetector(
                     onTap: () {
                       setState(() {
-                        widget.spanish_active = true;
-                        widget.english_active = false;
+                        widget.spanishActive = true;
+                        widget.englishActive = false;
                       });
                     },
                     child: Text(
                       "Spanish",
                       style: TextStyle(
-                          color: widget.spanish_active
+                          color: widget.spanishActive
                               ? Colors.white
                               : const Color.fromARGB(255, 167, 143, 186)),
                     ),
@@ -147,12 +149,12 @@ class _LanguageSelectorState extends State<LanguageSelector> {
 class UnitSelector extends StatefulWidget {
   UnitSelector(
       {super.key,
-      required this.f_active,
-      required this.c_active,
-      required this.k_active});
-  bool f_active;
-  bool c_active;
-  bool k_active;
+      required this.fisActive,
+      required this.cisActive,
+      required this.kisActive});
+  bool fisActive;
+  bool cisActive;
+  bool kisActive;
 
   @override
   State<UnitSelector> createState() => _UnitSelectorState();
@@ -173,15 +175,15 @@ class _UnitSelectorState extends State<UnitSelector> {
                   child: GestureDetector(
                     onTap: () {
                       setState(() {
-                        widget.f_active = true;
-                        widget.c_active = false;
-                        widget.k_active = false;
+                        widget.fisActive = true;
+                        widget.cisActive = false;
+                        widget.kisActive = false;
                       });
                     },
                     child: Text(
                       "Fahrenheit (Fº)",
                       style: TextStyle(
-                          color: widget.f_active
+                          color: widget.fisActive
                               ? Colors.white
                               : const Color.fromARGB(255, 167, 143, 186)),
                     ),
@@ -193,15 +195,15 @@ class _UnitSelectorState extends State<UnitSelector> {
                   child: GestureDetector(
                     onTap: () {
                       setState(() {
-                        widget.f_active = false;
-                        widget.c_active = true;
-                        widget.k_active = false;
+                        widget.fisActive = false;
+                        widget.cisActive = true;
+                        widget.kisActive = false;
                       });
                     },
                     child: Text(
                       "Celsius (Cº)",
                       style: TextStyle(
-                          color: widget.c_active
+                          color: widget.cisActive
                               ? Colors.white
                               : const Color.fromARGB(255, 167, 143, 186)),
                     ),
@@ -213,15 +215,15 @@ class _UnitSelectorState extends State<UnitSelector> {
                   child: GestureDetector(
                     onTap: () {
                       setState(() {
-                        widget.f_active = false;
-                        widget.c_active = false;
-                        widget.k_active = true;
+                        widget.fisActive = false;
+                        widget.cisActive = false;
+                        widget.kisActive = true;
                       });
                     },
                     child: Text(
                       "Kelvin (K)",
                       style: TextStyle(
-                          color: widget.k_active
+                          color: widget.kisActive
                               ? Colors.white
                               : const Color.fromARGB(255, 167, 143, 186)),
                     ),

@@ -5,7 +5,6 @@ import 'package:weather_tune/bloc/weather_bloc_bloc.dart';
 import 'package:weather_tune/widgets/details_page/air_concentration.dart';
 import 'package:weather_tune/widgets/details_page/my_ubication.dart';
 import 'package:weather_tune/widgets/details_page/square_info.dart';
-import 'package:weather_tune/widgets/home_page/TabMenu/Forecast/Forecast_PageView.dart';
 
 class DetailsPage extends StatefulWidget {
   const DetailsPage({super.key});
