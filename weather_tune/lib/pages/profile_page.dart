@@ -40,21 +40,57 @@ class ProfilePage extends StatelessWidget {
                       SizedBox(height: margins),
                       ChangeProfilePicture(picture: ProfilePicture(size: 160)),
                       SizedBox(height: margins),
-                      Username(),
+                      const Username(),
                       SizedBox(height: margins),
                     ],
                   )),
               SizedBox(height: margins),
               MenuContainer(
                 widgetWidth: MediaQuery.sizeOf(context).width - 40,
-                child: const Column(children: [
-                  Text("Email",
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold)),
-                  Email(),
-                ]),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    const Icon(Icons.place, color: Colors.white, size: 36),
+                    const SizedBox(width: 20),
+                    Expanded(
+                      child: Container(
+                          padding: const EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: const Color.fromARGB(255, 167, 143, 186)
+                                .withOpacity(0.4),
+                          ),
+                          child: const Align(
+                            alignment: Alignment.center,
+                            child: Text("Barcelona",
+                                style: TextStyle(
+                                    fontSize: 16,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold)),
+                          )),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: margins),
+              MenuContainer(
+                widgetWidth: MediaQuery.sizeOf(context).width - 40,
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      SizedBox(height: margins / 2),
+                      const Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text("Email",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold)),
+                      ),
+                      SizedBox(height: margins),
+                      const Email(),
+                      SizedBox(height: margins / 2),
+                    ]),
               ),
               SizedBox(height: margins),
               DropDownButton(
@@ -127,10 +163,10 @@ class Email extends StatelessWidget {
       alignment: Alignment.centerLeft,
       child: ModifiableTextbox(
         defaultText: "example@gmail.com",
-        mainTextStyle:
-            const TextStyle(color: Color.fromARGB(255, 209, 201, 213)),
-        fieldTextStyle:
-            const TextStyle(color: Color.fromARGB(255, 209, 201, 213)),
+        mainTextStyle: const TextStyle(
+            color: Color.fromARGB(255, 209, 201, 213), fontSize: 16),
+        fieldTextStyle: const TextStyle(
+            color: Color.fromARGB(255, 209, 201, 213), fontSize: 16),
         centeredText: false,
       ),
     );

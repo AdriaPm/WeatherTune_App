@@ -20,7 +20,9 @@ class _ModifiableTextboxState extends State<ModifiableTextbox> {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: widget.centeredText
+          ? MainAxisAlignment.center
+          : MainAxisAlignment.start,
       children: [
         GestureDetector(
           onTap: () {
@@ -30,14 +32,12 @@ class _ModifiableTextboxState extends State<ModifiableTextbox> {
           },
           child: Text(
             widget.defaultText,
-            style: const TextStyle(
-                fontSize: 30, color: Colors.white, fontWeight: FontWeight.bold),
+            style: widget.mainTextStyle,
           ),
         ),
-        if (widget.clicked) const SizedBox(height: 20),
         if (widget.clicked)
           TextField(
-            style: const TextStyle(color: Colors.white),
+            style: widget.fieldTextStyle,
             textAlign: widget.centeredText ? TextAlign.center : TextAlign.start,
             onChanged: (newText) {
               // Update text content when the user types in the TextField
