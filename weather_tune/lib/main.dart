@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
         "/radar": (context) => const RadarPage(),
         "/favorites": (context) => FavoritePage(),
         "/settings": (context) => const SettingsPage(),
-        "/profile": (context) => const ProfilePage(),
+        "/profile": (context) => ProfilePage(),
       },
       home: const SplashPage(screenLoadingTime: 4),
     );

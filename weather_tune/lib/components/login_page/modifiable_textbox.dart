@@ -8,12 +8,14 @@ class ModifiableTextbox extends StatefulWidget {
       required this.defaultText,
       required this.mainTextStyle,
       required this.fieldTextStyle,
-      required this.centeredText});
+      required this.centeredText,
+      this.function});
   String defaultText;
   final TextStyle mainTextStyle;
   final TextStyle fieldTextStyle;
   bool centeredText = false;
   bool clicked = false;
+  Function? function;
   @override
   State<ModifiableTextbox> createState() => _ModifiableTextboxState();
 }
@@ -45,6 +47,7 @@ class _ModifiableTextboxState extends State<ModifiableTextbox> {
               // Update text content when the user types in the TextField
               setState(() {
                 widget.defaultText = newText;
+                widget.function?.call();
               });
             },
           ),

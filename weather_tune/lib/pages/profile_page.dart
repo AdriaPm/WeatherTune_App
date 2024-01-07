@@ -5,10 +5,22 @@ import 'package:weather_tune/components/login_page/profile_picture.dart';
 import 'package:weather_tune/components/login_page/menu_container.dart';
 import 'package:weather_tune/widgets/profile_page/email.dart';
 import 'package:weather_tune/widgets/profile_page/usermane.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+Future saveUserDeatails() async {
+  await FirebaseFirestore.instance.collection('UserInfo').add({
+    'Profile Picture': '',
+    'Username': '',
+    'email': '',
+  });
+}
 
 class ProfilePage extends StatelessWidget {
   final double margins = 10;
-  const ProfilePage({super.key});
+  // String email = FirebaseFirestore.instance.collection('UserInfo').get('email');
+  // String username = "username";
+  // String profilePicPath =
+  ProfilePage({super.key});
 //Sign User Out
   void signOut() {
     FirebaseAuth.instance.signOut();
@@ -46,7 +58,7 @@ class ProfilePage extends StatelessWidget {
                       SizedBox(height: margins),
                       ChangeProfilePicture(picture: ProfilePicture(size: 100)),
                       SizedBox(height: margins),
-                      const Username(),
+                      UsernameTextbox(),
                       SizedBox(height: margins),
                     ],
                   )),
@@ -94,7 +106,7 @@ class ProfilePage extends StatelessWidget {
                                 fontWeight: FontWeight.bold)),
                       ),
                       SizedBox(height: margins),
-                      const Email(),
+                      EmailTextBox(),
                       SizedBox(height: margins / 2),
                     ]),
               ),
