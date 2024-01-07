@@ -46,7 +46,7 @@ class ProfilePage extends StatelessWidget {
                       SizedBox(height: margins),
                       ChangeProfilePicture(picture: ProfilePicture(size: 100)),
                       SizedBox(height: margins),
-                      const Username(),
+                      Username(),
                       SizedBox(height: margins),
                     ],
                   )),
