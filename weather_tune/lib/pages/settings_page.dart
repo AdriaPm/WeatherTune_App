@@ -13,6 +13,12 @@ class SettingsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Settings', style: TextStyle(fontSize: 20)),
+        backgroundColor: Colors.grey.shade900,
+        foregroundColor: const Color.fromARGB(207, 255, 255, 255),
+        toolbarHeight: 50,
+      ),
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
@@ -27,13 +33,13 @@ class SettingsPage extends StatelessWidget {
         child: Center(
           child: Column(
             children: [
-              SizedBox(height: margins * 2),
+              SizedBox(height: margins),
               const Text("Settings",
                   style: TextStyle(
                       color: Colors.white,
-                      fontSize: 50,
+                      fontSize: 40,
                       fontWeight: FontWeight.bold)),
-              SizedBox(height: margins * 2),
+              SizedBox(height: margins),
               ProfileButton(
                 widgetWidth: MediaQuery.sizeOf(context).width - 40,
               ),

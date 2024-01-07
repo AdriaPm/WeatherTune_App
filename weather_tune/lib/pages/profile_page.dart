@@ -1,16 +1,28 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:weather_tune/components/login_page/dropdown_button.dart';
 import 'package:weather_tune/components/login_page/profile_picture.dart';
 import 'package:weather_tune/components/login_page/menu_container.dart';
-import 'package:weather_tune/components/login_page/modifiable_textbox.dart';
+import 'package:weather_tune/widgets/profile_page/email.dart';
+import 'package:weather_tune/widgets/profile_page/usermane.dart';
 
 class ProfilePage extends StatelessWidget {
   final double margins = 10;
   const ProfilePage({super.key});
+//Sign User Out
+  void signOut() {
+    FirebaseAuth.instance.signOut();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Profile', style: TextStyle(fontSize: 20)),
+        backgroundColor: Colors.grey.shade900,
+        foregroundColor: const Color.fromARGB(207, 255, 255, 255),
+        toolbarHeight: 50,
+      ),
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
@@ -25,20 +37,14 @@ class ProfilePage extends StatelessWidget {
         child: Center(
           child: Column(
             children: [
-              SizedBox(height: margins * 2),
-              const Text("Profile",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 50,
-                      fontWeight: FontWeight.bold)),
-              SizedBox(height: margins * 2),
+              SizedBox(height: margins),
               MenuContainer(
                   widgetWidth: MediaQuery.sizeOf(context).width - 40,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       SizedBox(height: margins),
-                      ChangeProfilePicture(picture: ProfilePicture(size: 160)),
+                      ChangeProfilePicture(picture: ProfilePicture(size: 100)),
                       SizedBox(height: margins),
                       const Username(),
                       SizedBox(height: margins),
@@ -129,45 +135,20 @@ class ProfilePage extends StatelessWidget {
                 ),
               ),
               SizedBox(height: margins),
+              IconButton(
+                icon: const Icon(
+                  Icons.logout_rounded,
+                  color: Colors.white,
+                  size: 40,
+                ),
+                onPressed: () {
+                  signOut();
+                  Navigator.of(context).pushReplacementNamed("/auth");
+                },
+              )
             ],
           ),
         ),
-      ),
-    );
-  }
-}
-
-class Username extends StatelessWidget {
-  const Username({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: ModifiableTextbox(
-        defaultText: "username",
-        mainTextStyle: const TextStyle(
-            color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold),
-        fieldTextStyle: const TextStyle(color: Colors.white, fontSize: 20),
-        centeredText: true,
-      ),
-    );
-  }
-}
-
-class Email extends StatelessWidget {
-  const Email({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.centerLeft,
-      child: ModifiableTextbox(
-        defaultText: "example@gmail.com",
-        mainTextStyle: const TextStyle(
-            color: Color.fromARGB(255, 209, 201, 213), fontSize: 16),
-        fieldTextStyle: const TextStyle(
-            color: Color.fromARGB(255, 209, 201, 213), fontSize: 16),
-        centeredText: false,
       ),
     );
   }

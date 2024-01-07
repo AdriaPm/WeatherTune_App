@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:weather_tune/data/getWeather_getBackground.dart';
+import 'package:weather_tune/models/favorite_page/location_data.dart';
+import 'package:weather_tune/widgets/favorites_page/location_box.dart';
 
 class FavoritePage extends StatelessWidget {
   final List<LocationData> locations = [
@@ -18,18 +19,19 @@ class FavoritePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Favorites'),
+        title:
+            const Text('Favourite Locations', style: TextStyle(fontSize: 20)),
+        backgroundColor: Colors.grey.shade900,
+        foregroundColor: const Color.fromARGB(207, 255, 255, 255),
+        toolbarHeight: 50,
       ),
       body: Stack(
         children: [
-          // Background with a gradient or an image
-          // You can replace this with your desired background
-          // Background image covering the entire app
+          // Background image covering the entire background
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage(
-                    'images/favorites_bkg.jpg'), // Replace with your image asset
+                image: AssetImage('images/favorites_bkg.jpg'),
                 fit: BoxFit.cover,
               ),
             ),
@@ -55,65 +57,4 @@ class FavoritePage extends StatelessWidget {
       ),
     );
   }
-}
-
-class LocationBox extends StatelessWidget {
-  final String location;
-  final String weatherCondition;
-  final String temperature;
-
-  const LocationBox({
-    super.key,
-    required this.location,
-    required this.weatherCondition,
-    required this.temperature,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 100,
-      decoration: BoxDecoration(
-        color: Colors.indigo.withOpacity(0.5), // Set opacity here
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  location,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                Text(
-                  temperature,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class LocationData {
-  final String location;
-  final String weatherCondition;
-  final String temperature;
-
-  LocationData(this.location, this.weatherCondition, this.temperature);
 }

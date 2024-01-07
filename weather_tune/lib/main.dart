@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:weather_tune/auth/auth.dart';
 import 'package:weather_tune/components/api_bloc_routing/route_info.dart';
 import 'package:weather_tune/firebase/firebase_options.dart';
 import 'package:weather_tune/pages/favorites_page.dart';
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
       title: "WeatherTune",
       debugShowCheckedModeBanner: false,
       routes: {
+        "/auth": (context) => const AuthPage(),
         "/details": (context) => const DetailsAPI(),
         "/radar": (context) => const RadarPage(),
         "/favorites": (context) => FavoritePage(),

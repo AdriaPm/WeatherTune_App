@@ -42,6 +42,12 @@ class _RadarPageState extends State<RadarPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Radar', style: TextStyle(fontSize: 20)),
+        backgroundColor: Colors.grey.shade900,
+        foregroundColor: const Color.fromARGB(207, 255, 255, 255),
+        toolbarHeight: 50,
+      ),
       body: Stack(
         alignment: Alignment.center,
         children: [

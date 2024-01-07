@@ -22,8 +22,7 @@ class _HomePageState extends State<HomePage> {
         bottomNavigationBar: BottomBarWidget(
             favorites_active: false,
             home_active: true,
-            profile_active: false,
-            search_active: false,
+            radar_active: false,
             settings_active: false),
         body: BlocBuilder<WeatherBlocBloc, WeatherBlocState>(
           builder: (context, state) {
@@ -44,6 +43,9 @@ class _HomePageState extends State<HomePage> {
                         child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
+                              SizedBox(
+                                  height: MediaQuery.of(context).size.height *
+                                      0.02),
                               Text(
                                 '📍 ${state.weather.areaName}',
                                 style: const TextStyle(
