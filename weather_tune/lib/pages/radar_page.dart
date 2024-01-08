@@ -81,9 +81,9 @@ class _RadarPageState extends State<RadarPage> {
                         _initTiles(_forecastDate);
                       },
                       style: ElevatedButton.styleFrom(
-                        shape: const CircleBorder(),
-                        padding: const EdgeInsets.all(20),
-                      ),
+                          shape: const CircleBorder(),
+                          padding: const EdgeInsets.all(20),
+                          backgroundColor: Colors.blue),
                       child: const Icon(
                         Icons.arrow_back_rounded,
                         color: Colors.white,
@@ -97,11 +97,11 @@ class _RadarPageState extends State<RadarPage> {
                       child: Container(
                         padding: const EdgeInsets.all(10),
                         child: Text(
-                          'Forecast Date:\n${DateFormat('yyyy-MM-dd ha').format(_forecastDate)}',
+                          'Forecast Date:\n${DateFormat('dd/MM/yyyy ha').format(_forecastDate)}',
                           textAlign: TextAlign.center,
                           style: const TextStyle(
                             color: Colors.blue,
-                            fontSize: 18,
+                            fontSize: 16,
                           ),
                         ),
                       ),
@@ -121,9 +121,9 @@ class _RadarPageState extends State<RadarPage> {
                                   _initTiles(_forecastDate);
                                 },
                       style: ElevatedButton.styleFrom(
-                        shape: const CircleBorder(),
-                        padding: const EdgeInsets.all(20),
-                      ),
+                          shape: const CircleBorder(),
+                          padding: const EdgeInsets.all(20),
+                          backgroundColor: Colors.blue),
                       child: const Icon(
                         Icons.arrow_forward_rounded,
                         color: Colors.white,
