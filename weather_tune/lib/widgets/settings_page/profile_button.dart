@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:weather_tune/widgets/profile_page/profile_picture.dart';
 import 'package:weather_tune/components/login_page/menu_container.dart';

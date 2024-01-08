@@ -21,7 +21,7 @@ class _FavoritePageState extends State<FavoritePage> {
   void initState() {
     super.initState();
     _getUserID();
-    _getProfilePic();
+    _getUnit();
   }
 
   Future<void> _getUserID() async {
@@ -33,15 +33,19 @@ class _FavoritePageState extends State<FavoritePage> {
     }
   }
 
-  Future<void> _getProfilePic() async {
-    DocumentSnapshot user = await FirebaseFirestore.instance
-        .collection('UserInfo')
-        .doc(userID)
-        .get();
-    var userData = user.data() as Map<String, dynamic>;
-    setState(() {
-      unit = userData['chosenUnit'];
-    });
+  Future<void> _getUnit() async {
+    try {
+      DocumentSnapshot user = await FirebaseFirestore.instance
+          .collection('UserInfo')
+          .doc(userID)
+          .get();
+      var userData = user.data() as Map<String, dynamic>;
+      setState(() {
+        unit = userData['chosenUnit'];
+      });
+    } catch (e) {
+      print('Error finding unit: $e');
+    }
   }
 
   @override
