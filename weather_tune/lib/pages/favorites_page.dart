@@ -1,22 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_tune/bloc/weather_bloc_bloc.dart';
-import 'package:weather_tune/data/getWeather_getBackground.dart';
 import 'package:weather_tune/models/favorite_page/location_data.dart';
 import 'package:weather_tune/widgets/favorites_page/location_box.dart';
 
 class FavoritePage extends StatelessWidget {
-  final List<LocationData> locations = [
-    LocationData('New York', 'sunny', '25°C'),
-    LocationData('London', 'cloudy', '13°C'),
-    LocationData('Tokyo', 'rainy', '20°C'),
-    LocationData('Paris', 'snowy', '-2°C'),
-    LocationData('Sydney', 'foggy', '22°C'),
-    LocationData('Berlin', 'stormy', '15°C'),
-    // Add more locations as needed
-  ];
-
-  FavoritePage({super.key});
+  const FavoritePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +22,18 @@ class FavoritePage extends StatelessWidget {
       body: BlocBuilder<WeatherBlocBloc, WeatherBlocState>(
         builder: (context, state) {
           if (state is WeatherBlocSuccess) {
+            final List<LocationData> locations = [
+              LocationData(
+                  '${state.city1.areaName}',
+                  state.city1.weatherConditionCode!,
+                  '${state.city1.temperature!.celsius!.round()}ºC'),
+              // LocationData('London', 'cloudy', '13°C'),
+              // LocationData('Tokyo', 'rainy', '20°C'),
+              // LocationData('Paris', 'snowy', '-2°C'),
+              // LocationData('Sydney', 'foggy', '22°C'),
+              // LocationData('Berlin', 'stormy', '15°C'),
+              // Add more locations as needed
+            ];
             return Stack(
               children: [
                 Container(

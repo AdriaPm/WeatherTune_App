@@ -1,6 +1,6 @@
 class LocationData {
   final String location;
-  final String weatherCondition;
+  final int weatherCondition;
   final String temperature;
 
   LocationData(this.location, this.weatherCondition, this.temperature);

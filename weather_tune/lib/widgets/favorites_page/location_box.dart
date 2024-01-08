@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:weather_tune/data/getweather_getbackground.dart';
 
 class LocationBox extends StatelessWidget {
   final String location;
-  final String weatherCondition;
+  final int weatherCondition;
   final String temperature;
 
   const LocationBox({
@@ -46,6 +47,7 @@ class LocationBox extends StatelessWidget {
                 ),
               ],
             ),
+            getWeatherIcon(weatherCondition),
           ],
         ),
       ),
