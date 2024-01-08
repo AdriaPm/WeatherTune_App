@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:weather_tune/auth/auth.dart';
+import 'package:weather_tune/components/api_bloc_routing/route_fav.dart';
 import 'package:weather_tune/components/api_bloc_routing/route_info.dart';
 import 'package:weather_tune/firebase/firebase_options.dart';
 import 'package:weather_tune/pages/favorites_page.dart';
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
       routes: {
         "/auth": (context) => const AuthPage(),
         "/details": (context) => const DetailsAPI(),
+        "/favAPI": (context) => const FavAPI(),
         "/radar": (context) => const RadarPage(),
         "/favorites": (context) => FavoritePage(),
         "/settings": (context) => const SettingsPage(),
