@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
+// ignore: must_be_immutable
 class UsernameTextbox extends StatefulWidget {
   UsernameTextbox({super.key});
-  String username = "";
+  String username = "username";
   String userID = "";
   bool centeredText = true;
   bool clicked = false;
@@ -92,7 +93,7 @@ Future storeUsername(String userID, String username) async {
     await FirebaseFirestore.instance
         .collection('UserInfo')
         .doc(userID)
-        .set({'username': username});
+        .update({'username': username});
   } catch (e) {
     print('Error storing username: $e');
   }

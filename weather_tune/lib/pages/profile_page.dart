@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:weather_tune/components/login_page/dropdown_button.dart';
-import 'package:weather_tune/components/login_page/profile_picture.dart';
+import 'package:weather_tune/widgets/profile_page/profile_picture.dart';
 import 'package:weather_tune/components/login_page/menu_container.dart';
 import 'package:weather_tune/widgets/profile_page/email.dart';
 import 'package:weather_tune/widgets/profile_page/username.dart';
@@ -47,7 +47,7 @@ class ProfilePage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       SizedBox(height: margins),
-                      ChangeProfilePicture(picture: ProfilePicture(size: 100)),
+                      ChangeProfilePicture(pictureSize: 100),
                       SizedBox(height: margins),
                       UsernameTextbox(),
                       SizedBox(height: margins),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:weather_tune/components/login_page/dropdown_button.dart';
 
+// ignore: must_be_immutable
 class UnitSelector extends StatefulWidget {
   UnitSelector(
       {super.key,

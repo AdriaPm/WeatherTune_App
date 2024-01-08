@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
+// ignore: must_be_immutable
 class EmailTextBox extends StatefulWidget {
   EmailTextBox({super.key});
   String email = "";

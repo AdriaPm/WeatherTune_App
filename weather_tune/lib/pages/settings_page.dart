@@ -44,11 +44,6 @@ class SettingsPage extends StatelessWidget {
                 title: "Alerts",
               ),
               SizedBox(height: margins),
-              SliderButton(
-                widgetWidth: MediaQuery.sizeOf(context).width - 40,
-                title: "Dark Mode",
-              ),
-              SizedBox(height: margins),
               LanguageSelector(englishActive: true, spanishActive: false),
               SizedBox(height: margins),
               UnitSelector(cisActive: true, fisActive: false, kisActive: false),
