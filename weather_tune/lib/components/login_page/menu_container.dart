@@ -10,7 +10,7 @@ class MenuContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       child: Container(
-          padding: const EdgeInsets.all(10),
+          padding: const EdgeInsets.all(15),
           width: widgetWidth,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),

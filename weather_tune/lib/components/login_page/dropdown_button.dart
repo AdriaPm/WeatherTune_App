@@ -36,7 +36,7 @@ class _DropDownButtonState extends State<DropDownButton> {
                   Text(widget.title,
                       style: const TextStyle(
                           color: Colors.white,
-                          fontSize: 16,
+                          fontSize: 18,
                           fontWeight: FontWeight.bold)),
                   selected
                       ? const Icon(Icons.keyboard_arrow_down,
@@ -47,7 +47,7 @@ class _DropDownButtonState extends State<DropDownButton> {
               ),
               if (selected)
                 Container(
-                    padding: const EdgeInsets.fromLTRB(5, 10, 5, 5),
+                    padding: const EdgeInsets.fromLTRB(2, 10, 5, 5),
                     child: widget.child),
             ],
           )),

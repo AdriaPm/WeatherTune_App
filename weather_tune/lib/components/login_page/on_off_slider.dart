@@ -52,7 +52,7 @@ class SliderButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(10),
+      padding: const EdgeInsets.all(15),
       width: widgetWidth,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
@@ -68,9 +68,9 @@ class SliderButton extends StatelessWidget {
           Text(title,
               style: const TextStyle(
                   color: Colors.white,
-                  fontSize: 16,
+                  fontSize: 18,
                   fontWeight: FontWeight.bold)),
-          const OnOffSlider(size: 25),
+          const OnOffSlider(size: 28),
         ],
       ),
     );

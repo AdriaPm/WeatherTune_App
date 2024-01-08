@@ -78,6 +78,11 @@ class _UnitSelectorState extends State<UnitSelector> {
                                 ? Colors.white
                                 : const Color.fromARGB(255, 167, 143, 186))),
                   )),
+            const SizedBox(height: 6),
+            const Text(
+                "Log out and log back in for home screen units to change on display.",
+                style: TextStyle(
+                    fontSize: 13, color: Color.fromARGB(255, 216, 198, 231)))
           ],
         ),
       ),

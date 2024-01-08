@@ -5,6 +5,8 @@ import 'package:weather_tune/bloc/weather_bloc_bloc.dart';
 import 'package:weather_tune/components/bottombar.dart';
 import 'package:weather_tune/components/home_page/home_expandedinfo.dart';
 import 'package:weather_tune/data/getweather_getbackground.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -14,6 +16,36 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int unit = 1;
+  String userID = "";
+
+  @override
+  void initState() {
+    super.initState();
+    _getUserID();
+    _getProfilePic();
+  }
+
+  Future<void> _getUserID() async {
+    FirebaseAuth auth = FirebaseAuth.instance;
+    User? user = auth.currentUser;
+
+    if (user != null) {
+      userID = user.uid;
+    }
+  }
+
+  Future<void> _getProfilePic() async {
+    DocumentSnapshot user = await FirebaseFirestore.instance
+        .collection('UserInfo')
+        .doc(userID)
+        .get();
+    var userData = user.data() as Map<String, dynamic>;
+    setState(() {
+      unit = userData['chosenUnit'];
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,7 +104,11 @@ class _HomePageState extends State<HomePage> {
                               ),
                               Center(
                                 child: Text(
-                                  "${state.weather.temperature!.celsius!.round()}ºC",
+                                  unit == 1
+                                      ? "${state.weather.temperature!.celsius!.round()}ºC"
+                                      : unit == 2
+                                          ? "${state.weather.temperature!.kelvin!.round()}K"
+                                          : "${state.weather.temperature!.fahrenheit!.round()}ºF",
                                   style: const TextStyle(
                                       color: Colors.white,
                                       fontSize: 55,
