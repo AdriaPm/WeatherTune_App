@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:weather_tune/bloc/weather_bloc_bloc.dart';
 import 'package:weather_tune/models/favorite_page/location_data.dart';
 import 'package:weather_tune/widgets/favorites_page/location_box.dart';
 
@@ -25,35 +27,39 @@ class FavoritePage extends StatelessWidget {
         foregroundColor: const Color.fromARGB(207, 255, 255, 255),
         toolbarHeight: 50,
       ),
-      body: Stack(
-        children: [
-          // Background image covering the entire background
-          Container(
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('images/favorites_bkg.jpg'),
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
-
-          // List of location boxes
-          Positioned.fill(
-            child: ListView.builder(
-              itemCount: locations.length,
-              itemBuilder: (context, index) {
-                return Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8.0),
-                  child: LocationBox(
-                    location: locations[index].location,
-                    weatherCondition: locations[index].weatherCondition,
-                    temperature: locations[index].temperature,
+      body: BlocBuilder<WeatherBlocBloc, WeatherBlocState>(
+        builder: (context, state) {
+          return Stack(
+            children: [
+              // Background image covering the entire background
+              Container(
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('images/favorites_bkg.jpg'),
+                    fit: BoxFit.cover,
                   ),
-                );
-              },
-            ),
-          ),
-        ],
+                ),
+              ),
+
+              // List of location boxes
+              Positioned.fill(
+                child: ListView.builder(
+                  itemCount: locations.length,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 8.0),
+                      child: LocationBox(
+                        location: locations[index].location,
+                        weatherCondition: locations[index].weatherCondition,
+                        temperature: locations[index].temperature,
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ],
+          );
+        },
       ),
     );
   }
