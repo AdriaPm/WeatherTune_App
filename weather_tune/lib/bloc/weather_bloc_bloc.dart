@@ -22,12 +22,17 @@ class WeatherBlocBloc extends Bloc<WeatherBlocEvent, WeatherBlocState> {
             event.position.latitude, event.position.longitude);
 
         Weather city1 = await wf.currentWeatherByCityName("Paris");
+        Weather city2 = await wf.currentWeatherByCityName("New York");
+        Weather city3 = await wf.currentWeatherByCityName("London");
+        Weather city4 = await wf.currentWeatherByCityName("Tokio");
+        Weather city5 = await wf.currentWeatherByCityName("Sydney");
+        Weather city6 = await wf.currentWeatherByCityName("Barlin");
 
-        emit(WeatherBlocSuccess(weather, weatherlist, city1));
+        emit(WeatherBlocSuccess(
+            weather, weatherlist, city1, city2, city3, city4, city5, city6));
       } catch (e) {
         emit(WeatherBlocFailure());
       }
     });
   }
 }
-
