@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:weather_tune/bloc/weather_bloc_bloc.dart';
+import 'package:weather_tune/pages/favorites_page.dart';
 import 'package:weather_tune/pages/home_page.dart';
 
 class ApiEnabled extends StatefulWidget {
@@ -22,6 +23,36 @@ class _ApiEnabledState extends State<ApiEnabled> {
               create: (context) =>
                   WeatherBlocBloc()..add(FetchWeather(snap.data as Position)),
               child: const HomePage(),
+            );
+          } else {
+            return const Scaffold(
+              body: Center(
+                child: CircularProgressIndicator(),
+              ),
+            );
+          }
+        });
+  }
+}
+
+class ApiEnabledFavorites extends StatefulWidget {
+  const ApiEnabledFavorites({super.key});
+
+  @override
+  State<ApiEnabledFavorites> createState() => _ApiEnabledFavoritesState();
+}
+
+class _ApiEnabledFavoritesState extends State<ApiEnabledFavorites> {
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder(
+        future: _determinePosition(),
+        builder: (context, snap) {
+          if (snap.hasData) {
+            return BlocProvider(
+              create: (context) =>
+                  WeatherBlocBloc()..add(FetchWeather(snap.data as Position)),
+              child: FavoritePage(),
             );
           } else {
             return const Scaffold(
