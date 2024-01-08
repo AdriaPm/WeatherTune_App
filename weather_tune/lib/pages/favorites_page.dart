@@ -27,11 +27,26 @@ class FavoritePage extends StatelessWidget {
                   '${state.city1.areaName}',
                   state.city1.weatherConditionCode!,
                   '${state.city1.temperature!.celsius!.round()}ºC'),
-              // LocationData('London', 'cloudy', '13°C'),
-              // LocationData('Tokyo', 'rainy', '20°C'),
-              // LocationData('Paris', 'snowy', '-2°C'),
-              // LocationData('Sydney', 'foggy', '22°C'),
-              // LocationData('Berlin', 'stormy', '15°C'),
+              LocationData(
+                  '${state.city2.areaName}',
+                  state.city2.weatherConditionCode!,
+                  '${state.city2.temperature!.celsius!.round()}ºC'),
+              LocationData(
+                  '${state.city3.areaName}',
+                  state.city3.weatherConditionCode!,
+                  '${state.city3.temperature!.celsius!.round()}ºC'),
+              LocationData(
+                  '${state.city4.areaName}',
+                  state.city4.weatherConditionCode!,
+                  '${state.city4.temperature!.celsius!.round()}ºC'),
+              LocationData(
+                  '${state.city5.areaName}',
+                  state.city5.weatherConditionCode!,
+                  '${state.city5.temperature!.celsius!.round()}ºC'),
+              LocationData(
+                  '${state.city6.areaName}',
+                  state.city6.weatherConditionCode!,
+                  '${state.city6.temperature!.celsius!.round()}ºC'),
               // Add more locations as needed
             ];
             return Stack(
