@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:weather_tune/bloc/weather_bloc_bloc.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
-class ForecastView extends StatelessWidget {
+class ForecastView extends StatefulWidget {
   const ForecastView({super.key});
 
   Widget getWeatherIcon(int code) {
@@ -25,6 +27,41 @@ class ForecastView extends StatelessWidget {
       default:
         return Image.asset('images/weather_icons/7.png');
     }
+  }
+
+  @override
+  State<ForecastView> createState() => _ForecastViewState();
+}
+
+class _ForecastViewState extends State<ForecastView> {
+  int unit = 1;
+  String userID = "";
+
+  @override
+  void initState() {
+    super.initState();
+    _getUserID();
+    _getProfilePic();
+  }
+
+  Future<void> _getUserID() async {
+    FirebaseAuth auth = FirebaseAuth.instance;
+    User? user = auth.currentUser;
+
+    if (user != null) {
+      userID = user.uid;
+    }
+  }
+
+  Future<void> _getProfilePic() async {
+    DocumentSnapshot user = await FirebaseFirestore.instance
+        .collection('UserInfo')
+        .doc(userID)
+        .get();
+    var userData = user.data() as Map<String, dynamic>;
+    setState(() {
+      unit = userData['chosenUnit'];
+    });
   }
 
   @override
@@ -71,11 +108,15 @@ class ForecastView extends StatelessWidget {
                       ),
                       SizedBox(
                         height: 20,
-                        child: getWeatherIcon(
+                        child: widget.getWeatherIcon(
                             state.weatherlist[index].weatherConditionCode!),
                       ),
                       Text(
-                        "${state.weatherlist[index].temperature!.celsius!.round()}ºC",
+                        unit == 1
+                            ? "${state.weatherlist[index].temperature!.celsius!.round()}ºC"
+                            : unit == 2
+                                ? "${state.weatherlist[index].temperature!.kelvin!.round()}K"
+                                : "${state.weatherlist[index].temperature!.fahrenheit!.round()}ºF",
                         style: const TextStyle(
                             color: Colors.white,
                             fontSize: 12,
