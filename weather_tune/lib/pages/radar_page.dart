@@ -1,5 +1,3 @@
-// ignore_for_file: avoid_print
-
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:intl/intl.dart';
@@ -13,6 +11,9 @@ class RadarPage extends StatefulWidget {
 }
 
 class _RadarPageState extends State<RadarPage> {
+  // ignore: unused_field
+  GoogleMapController? _controller;
+
   TileOverlay? _tileOverlay;
 
   DateTime _forecastDate = DateTime.now();
@@ -26,7 +27,7 @@ class _RadarPageState extends State<RadarPage> {
         dateTime: date,
         // mapType: 'PAR0',
         mapType: 'PR0',
-        opacity: 0.4,
+        opacity: 0.8,
       ),
     );
     setState(() {
@@ -56,7 +57,9 @@ class _RadarPageState extends State<RadarPage> {
             mapType: MapType.normal,
             initialCameraPosition: _initialPosition,
             onMapCreated: (GoogleMapController controller) {
-              setState(() {});
+              setState(() {
+                _controller = controller;
+              });
               _initTiles(_forecastDate);
             },
             tileOverlays:
@@ -64,7 +67,7 @@ class _RadarPageState extends State<RadarPage> {
           ),
           Positioned(
             bottom: 30,
-            child: SizedBox(
+            child: Container(
               height: 70,
               width: MediaQuery.of(context).size.width,
               child: Stack(
@@ -81,9 +84,9 @@ class _RadarPageState extends State<RadarPage> {
                         _initTiles(_forecastDate);
                       },
                       style: ElevatedButton.styleFrom(
-                          shape: const CircleBorder(),
-                          padding: const EdgeInsets.all(20),
-                          backgroundColor: Colors.blue),
+                        shape: const CircleBorder(),
+                        padding: const EdgeInsets.all(20),
+                      ),
                       child: const Icon(
                         Icons.arrow_back_rounded,
                         color: Colors.white,
@@ -101,7 +104,7 @@ class _RadarPageState extends State<RadarPage> {
                           textAlign: TextAlign.center,
                           style: const TextStyle(
                             color: Colors.blue,
-                            fontSize: 16,
+                            fontSize: 18,
                           ),
                         ),
                       ),
@@ -121,9 +124,9 @@ class _RadarPageState extends State<RadarPage> {
                                   _initTiles(_forecastDate);
                                 },
                       style: ElevatedButton.styleFrom(
-                          shape: const CircleBorder(),
-                          padding: const EdgeInsets.all(20),
-                          backgroundColor: Colors.blue),
+                        shape: const CircleBorder(),
+                        padding: const EdgeInsets.all(20),
+                      ),
                       child: const Icon(
                         Icons.arrow_forward_rounded,
                         color: Colors.white,

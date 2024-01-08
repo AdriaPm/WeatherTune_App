@@ -1,5 +1,3 @@
-// ignore_for_file: avoid_print
-
 import 'package:flutter/services.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
@@ -21,7 +19,7 @@ class ForecastTileProvider implements TileProvider {
     try {
       final date = dateTime.millisecondsSinceEpoch ~/ 1000;
       final url =
-          "http://maps.openweathermap.org/maps/2.0/weather/$mapType/$zoom/$x/$y?date=$date&opacity=$opacity&appid=9521fffe8c47941cbe4fd2102ef11043";
+          "http://maps.openweathermap.org/maps/2.0/weather/$mapType/$zoom/$x/$y?date=$date&opacity=$opacity&fill_bound=true&appid=9521fffe8c47941cbe4fd2102ef11043";
       if (TilesCache.tiles.containsKey(url)) {
         tileBytes = TilesCache.tiles[url]!;
       } else {

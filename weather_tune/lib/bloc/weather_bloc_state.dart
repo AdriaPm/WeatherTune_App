@@ -23,6 +23,7 @@ final class WeatherBlocSuccess extends WeatherBlocState {
   final Weather city4;
   final Weather city5;
   final Weather city6;
+  // Add more locations as needed
 
   final List<Weather> weatherlist;
 

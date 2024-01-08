@@ -27,6 +27,7 @@ class WeatherBlocBloc extends Bloc<WeatherBlocEvent, WeatherBlocState> {
         Weather city4 = await wf.currentWeatherByCityName("Tokio");
         Weather city5 = await wf.currentWeatherByCityName("Sydney");
         Weather city6 = await wf.currentWeatherByCityName("Barlin");
+        // Add more locations as needed
 
         emit(WeatherBlocSuccess(
             weather, weatherlist, city1, city2, city3, city4, city5, city6));
