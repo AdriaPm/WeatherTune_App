@@ -30,9 +30,8 @@ class MyApp extends StatelessWidget {
       routes: {
         "/auth": (context) => const AuthPage(),
         "/details": (context) => const DetailsAPI(),
-        "/favAPI": (context) => const FavAPI(),
+        "/favorites": (context) => const FavAPI(),
         "/radar": (context) => const RadarPage(),
-        "/favorites": (context) => FavoritePage(),
         "/settings": (context) => const SettingsPage(),
         "/profile": (context) => ProfilePage(),
       },

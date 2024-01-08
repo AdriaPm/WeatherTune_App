@@ -20,15 +20,15 @@ class FavoritePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title:
-            const Text('Favourite Locations', style: TextStyle(fontSize: 20)),
-        backgroundColor: Colors.grey.shade900,
-        foregroundColor: const Color.fromARGB(207, 255, 255, 255),
-        toolbarHeight: 50,
-      ),
-      body: BlocBuilder<WeatherBlocBloc, WeatherBlocState>(
-builder: (context, state) {
+        appBar: AppBar(
+          title:
+              const Text('Favourite Locations', style: TextStyle(fontSize: 20)),
+          backgroundColor: Colors.grey.shade900,
+          foregroundColor: const Color.fromARGB(207, 255, 255, 255),
+          toolbarHeight: 50,
+        ),
+        body: BlocBuilder<WeatherBlocBloc, WeatherBlocState>(
+          builder: (context, state) {
             if (state is WeatherBlocSuccess) {
               return Container(
                   width: MediaQuery.sizeOf(context).width,
