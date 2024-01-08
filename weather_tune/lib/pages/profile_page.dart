@@ -4,16 +4,7 @@ import 'package:weather_tune/components/login_page/dropdown_button.dart';
 import 'package:weather_tune/components/login_page/profile_picture.dart';
 import 'package:weather_tune/components/login_page/menu_container.dart';
 import 'package:weather_tune/widgets/profile_page/email.dart';
-import 'package:weather_tune/widgets/profile_page/usermane.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-
-Future saveUserDeatails() async {
-  await FirebaseFirestore.instance.collection('UserInfo').add({
-    'Profile Picture': '',
-    'Username': '',
-    'email': '',
-  });
-}
+import 'package:weather_tune/widgets/profile_page/username.dart';
 
 class ProfilePage extends StatelessWidget {
   final double margins = 10;
