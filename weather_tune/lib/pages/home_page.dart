@@ -23,7 +23,7 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     _getUserID();
-    _getProfilePic();
+    _getUnit();
   }
 
   Future<void> _getUserID() async {
@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
-  Future<void> _getProfilePic() async {
+  Future<void> _getUnit() async {
     DocumentSnapshot user = await FirebaseFirestore.instance
         .collection('UserInfo')
         .doc(userID)
@@ -87,12 +87,27 @@ class _HomePageState extends State<HomePage> {
                               const SizedBox(
                                 height: 8,
                               ),
-                              const Text(
-                                'Good Morning',
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 25,
-                                    fontWeight: FontWeight.bold),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  const Text('Good Morning',
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 25,
+                                          fontWeight: FontWeight.bold)),
+                                  GestureDetector(
+                                      onTap: () {
+                                        setState(() {
+                                          _getUnit();
+                                        });
+                                      },
+                                      child: const Icon(
+                                        Icons.refresh,
+                                        color: Colors.white,
+                                        size: 30,
+                                      )),
+                                ],
                               ),
                               Center(
                                 child: SizedBox(

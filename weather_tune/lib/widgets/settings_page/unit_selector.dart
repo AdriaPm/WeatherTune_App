@@ -80,7 +80,7 @@ class _UnitSelectorState extends State<UnitSelector> {
                   )),
             const SizedBox(height: 6),
             const Text(
-                "Log out and log back in for home screen units to change on display.",
+                "Hit refresh button in the home screen to update unit change",
                 style: TextStyle(
                     fontSize: 13, color: Color.fromARGB(255, 216, 198, 231)))
           ],
