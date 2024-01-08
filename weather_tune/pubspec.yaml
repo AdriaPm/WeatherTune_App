@@ -51,6 +51,8 @@ dependencies:
   dots_indicator: ^2.0.0
   image_picker: ^0.8.4
   url_launcher: ^6.0.9
+  flutter_config: ^2.0.2
+
 
 
 dev_dependencies:

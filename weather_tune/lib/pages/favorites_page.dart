@@ -26,27 +26,27 @@ class FavoritePage extends StatelessWidget {
               LocationData(
                   '${state.city1.areaName}',
                   state.city1.weatherConditionCode!,
-                  '${state.city1.temperature!.celsius!.round()}ºC'),
+                  '${state.city1.temperature!.celsius!.round()}º C'),
               LocationData(
                   '${state.city2.areaName}',
                   state.city2.weatherConditionCode!,
-                  '${state.city2.temperature!.celsius!.round()}ºC'),
+                  '${state.city2.temperature!.celsius!.round()}º C'),
               LocationData(
                   '${state.city3.areaName}',
                   state.city3.weatherConditionCode!,
-                  '${state.city3.temperature!.celsius!.round()}ºC'),
+                  '${state.city3.temperature!.celsius!.round()}º C'),
               LocationData(
                   '${state.city4.areaName}',
                   state.city4.weatherConditionCode!,
-                  '${state.city4.temperature!.celsius!.round()}ºC'),
+                  '${state.city4.temperature!.celsius!.round()}º C'),
               LocationData(
                   '${state.city5.areaName}',
                   state.city5.weatherConditionCode!,
-                  '${state.city5.temperature!.celsius!.round()}ºC'),
+                  '${state.city5.temperature!.celsius!.round()}º C'),
               LocationData(
                   '${state.city6.areaName}',
                   state.city6.weatherConditionCode!,
-                  '${state.city6.temperature!.celsius!.round()}ºC'),
+                  '${state.city6.temperature!.celsius!.round()}º C'),
               // Add more locations as needed
             ];
             return Stack(
