@@ -6,6 +6,7 @@ import 'package:weather_tune/components/login_page/on_off_slider.dart';
 import 'package:weather_tune/widgets/settings_page/language_selector.dart';
 import 'package:weather_tune/widgets/settings_page/unit_selector.dart';
 import 'package:weather_tune/widgets/settings_page/profile_button.dart';
+import 'package:weather_tune/widgets/settings_page/open_website.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
@@ -46,28 +47,25 @@ class SettingsPage extends StatelessWidget {
               SizedBox(height: margins),
               LanguageSelector(englishActive: true, spanishActive: false),
               SizedBox(height: margins),
-              UnitSelector(cisActive: true, fisActive: false, kisActive: false),
+              UnitSelector(),
               SizedBox(height: margins),
               DropDownButton(
                 widgetWidth: MediaQuery.sizeOf(context).width - 40,
-                title: "Location Services",
-                child: const Align(
+                title: "Location and Weather Services",
+                child: Align(
                   alignment: Alignment.centerLeft,
-                  child: Text(
-                    "English",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
-              ),
-              SizedBox(height: margins),
-              DropDownButton(
-                widgetWidth: MediaQuery.sizeOf(context).width - 40,
-                title: "Weather Services",
-                child: const Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    "English",
-                    style: TextStyle(color: Colors.white),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
+                          "The resource used to provide these services: ",
+                          style: TextStyle(color: Colors.white)),
+                      Hyperlink(
+                          link: "https://openweathermap.org/api",
+                          style: const TextStyle(
+                              color: Color.fromARGB(255, 113, 210, 255),
+                              decoration: TextDecoration.underline))
+                    ],
                   ),
                 ),
               ),

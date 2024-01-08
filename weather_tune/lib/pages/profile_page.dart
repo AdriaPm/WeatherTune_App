@@ -104,23 +104,11 @@ class ProfilePage extends StatelessWidget {
               SizedBox(height: margins),
               DropDownButton(
                 widgetWidth: MediaQuery.sizeOf(context).width - 40,
-                title: "Privacy Settings",
-                child: const Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    "English",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
-              ),
-              SizedBox(height: margins),
-              DropDownButton(
-                widgetWidth: MediaQuery.sizeOf(context).width - 40,
                 title: "Terms of Service",
                 child: const Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    "English",
+                    "The user allows WeatherTune to access their current location and their email address. For more information, contact support.",
                     style: TextStyle(color: Colors.white),
                   ),
                 ),
@@ -129,11 +117,20 @@ class ProfilePage extends StatelessWidget {
               DropDownButton(
                 widgetWidth: MediaQuery.sizeOf(context).width - 40,
                 title: "Support",
-                child: const Align(
+                child: Align(
                   alignment: Alignment.centerLeft,
-                  child: Text(
-                    "English",
-                    style: TextStyle(color: Colors.white),
+                  child: RichText(
+                    text: const TextSpan(
+                      text: "For more information, contact ",
+                      style: TextStyle(color: Colors.white),
+                      children: [
+                        TextSpan(
+                          text: "+34 933 64 55 55",
+                          style: TextStyle(
+                              color: Colors.white, fontWeight: FontWeight.bold),
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),
