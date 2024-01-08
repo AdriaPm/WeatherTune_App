@@ -29,51 +29,6 @@ WeatherTune is the collaborative effort of four passionate students from CITM-UP
 2. Run "flutter pub get" in the terminal to install the project dependencies.
 3. Select the "Chrome" or Android Emulator device and run the project ("flutter run").
 
-## Features
-<div style="display: flex; justify-content: space-between;">
-  <div style="text-align: center; width: 45%; border: 1px solid #ccc; padding: 20px;">
-    <h3>Login Page</h3>
-    <img src="https://github.com/RylanJGraham/WeatherTune/blob/main/weather_tune/images/readme_images/LoginPage.png" alt="Image 1" style="width: 200px; height: 400px">
-    <p style="font-style: italic;">Login Screen for user entry into application. User login is authenticated using Firebase authentification. Users login is stored locally, allowing user to re-enter app without having to login again.</p>
-  </div>
-  <div style="text-align: center; width: 45%; border: 1px solid #ccc; padding: 20px;">
-    <h3>Register Page</h3>
-    <img src="https://github.com/RylanJGraham/WeatherTune/blob/main/weather_tune/images/readme_images/RegisterPage.png" alt="Image 2" style="width: 200px; height: 400px">
-    <p style="font-style: italic;">User is able to register account with Firebase Authentification. Providing Username (email), and password.</p>
-  </div>
-  <div style="text-align: center; width: 45%; border: 1px solid #ccc; padding: 20px;">
-    <h3>Home Page</h3>
-    <img src="https://github.com/RylanJGraham/WeatherTune/blob/main/weather_tune/images/readme_images/HomePage.png" alt="Image 2" style="width: 200px; height: 400px">
-    <p style="font-style: italic;">Application Homepage. User is able to navigate around bottom widget to view upcoming weather forecast, sunset/sunrise times, and max-min temperature. User location is 
-    automatically obtained by application using OpenWeather API</p>
-  </div>
-  <div style="text-align: center; width: 45%; border: 1px solid #ccc; padding: 20px;">
-    <h3>Extended Homepage</h3>
-    <img src="https://github.com/RylanJGraham/WeatherTune/blob/main/weather_tune/images/readme_images/HomePageExtended.png" alt="Image 2" style="width: 200px; height: 400px">
-    <p style="font-style: italic;">User can view additional information for weather in their location by swiping up on the home screen. User gains access to information about air concentration, wind, and precipitation</p>
-  </div>
-  <div style="text-align: center; width: 45%; border: 1px solid #ccc; padding: 20px;">
-    <h3>Favorites Page</h3>
-    <img src="https://github.com/RylanJGraham/WeatherTune/blob/main/weather_tune/images/readme_images/FavoritesPage.png" alt="Image 2" style="width: 200px; height: 400px">
-    <p style="font-style: italic;">User can see favorited locations and their respective temperatures. This is accessible by selecting the icon on the bottom bar</p>
-  </div>
-  <div style="text-align: center; width: 45%; border: 1px solid #ccc; padding: 20px;">
-    <h3>Radar Page</h3>
-    <img src="https://github.com/RylanJGraham/WeatherTune/blob/main/weather_tune/images/readme_images/RadarPage.png" alt="Image 2" style="width: 200px; height: 400px">
-    <p style="font-style: italic;">Using Google Maps API user is able to check location of their favorite spots on the map, browse the globe with ease!</p>
-  </div>
-  <div style="text-align: center; width: 45%; border: 1px solid #ccc; padding: 20px;">
-    <h3>Settings Page</h3>
-    <img src="https://github.com/RylanJGraham/WeatherTune/blob/main/weather_tune/images/readme_images/SettingsPage.png" alt="Image 2" style="width: 200px; height: 400px">
-    <p style="font-style: italic;">User can check their settings by selecting the settings icon from the bottom bar. While in settings user gains access to profile personalization, and personalization of Temperature values, API information and languages!</p>
-  </div>
-  <div style="text-align: center; width: 45%; border: 1px solid #ccc; padding: 20px;">
-    <h3>Profile Page</h3>
-    <img src="https://github.com/RylanJGraham/WeatherTune/blob/main/weather_tune/images/readme_images/ProfilePage.png" alt="Image 2" style="width: 200px; height: 400px">
-    <p style="font-style: italic;">Uses Firebase Firestore user is able to change username, view their location, change their avatar or logout. This data is stored and refreshes when user updates!</p>
-  </div>
-</div>
-
 ## Feedback and Issues
 
 If you encounter any issues or have suggestions for improvement, please [create an issue](https://github.com/RylanJGraham/WeatherTune/issues). We appreciate your feedback!
